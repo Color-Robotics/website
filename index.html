@@ -70,55 +70,32 @@ body, html {
 <div class="w3-container w3-dark-grey" style="padding:128px 16px" id="about">
   <h3 class="w3-center">About Colour</h3>
   <p class="w3-center w3-large">We're building the world's best data platform for robotics. Eliminate the data grunt-work so you can focus on the robotics problems.</p>
-  <!-- <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Responsive</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Passion</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Design</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Support</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-  </div> -->
 </div>
 
 <!-- Team Section -->
 <div class="w3-container" style="padding:128px 16px" id="team">
-  <h3 class="w3-center">THE TEAM</h3>
-  <p class="w3-center w3-large">The ones who runs this company</p>
-  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/w3images/team2.jpg" alt="Pradeesh" style="width:100%">
-        <div class="w3-container">
-          <h3>Pradeesh Suganthan</h3>
-          <p class="w3-opacity">Co-Founder & CEO</p>
+    <h3 class="w3-center">Team</h3>
+    <div class="w3-row-padding" style="margin-top:64px; display: flex; justify-content: center;">
+      <div class="w3-col l3 m6 w3-margin-bottom" style="margin-right: 16px;">
+        <div class="w3-card">
+          <img src="images/pradeesh.jpeg" alt="Pradeesh" style="width:100%">
+          <div class="w3-container">
+            <h3>Pradeesh Suganthan</h3>
+            <p class="w3-opacity">Co-Founder & CEO</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="/w3images/team1.jpg" alt="Ammar" style="width:100%">
-        <div class="w3-container">
-          <h3>Ammar Kothari</h3>
-          <p class="w3-opacity">Co-Founder & CTO</p>
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="images/ammar.jpeg" alt="Ammar" style="width:100%">
+          <div class="w3-container">
+            <h3>Ammar Kothari</h3>
+            <p class="w3-opacity">Co-Founder & CTO</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
@@ -139,33 +116,6 @@ body, html {
 <footer class="w3-center w3-black w3-padding-64">
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
 </footer>
- 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
 
 </body>
 </html>
