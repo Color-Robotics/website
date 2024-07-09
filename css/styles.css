@@ -50,13 +50,16 @@ html {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 2rem 2rem 2rem; /* Added top padding to account for navbar height */
+    padding: 4rem 2rem 2rem 2rem;
     box-sizing: border-box;
     color: #ffffff;
   }
   
   .hero-content {
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .hero h1 {
@@ -77,7 +80,7 @@ html {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
-    margin-top: 2rem;
+    margin-top: 2rem; /* Space between paragraph and button */
   }
   
   .hero .btn:hover {
@@ -91,10 +94,24 @@ html {
     transition: color 0.3s;
   }
   
+  .section h3 {
+    font-size: 3.5rem; /* Increase font size for section headings */
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
   .about-points p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin: 1rem 0;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Initially shifted down */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .about-points p.visible {
+    opacity: 1; /* Visible state */
+    transform: translateY(0); /* Shift to original position */
   }
   
   .team {
@@ -121,6 +138,7 @@ html {
   .team img {
     width: 100%;
     height: auto;
+    max-height: 300px; /* Ensure image takes up more space */
   }
   
   .team .container {
@@ -132,6 +150,11 @@ html {
     color: #000; /* Keep text color black */
   }
   
+  .team h4 {
+    font-size: 1.5rem; /* Reduce font size */
+    color: black;
+  }
+  
   .contact {
     background: #0b3434; /* Darker shade of green */
     padding: 4rem 2rem;
@@ -141,12 +164,12 @@ html {
   
   .contact p {
     font-size: 1.5rem;
-    font-weight: 700;
     margin: 1rem 0;
   }
   
   .contact .email {
     color: #ffffff;
+    font-weight: 700;
     text-decoration: none;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s;
