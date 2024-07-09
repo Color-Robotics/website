@@ -36,15 +36,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const elements = document.querySelectorAll('.about-points p');
   
     function checkVisibility() {
-      elements.forEach(el => {
+      elements.forEach((el, index) => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          el.classList.add('visible');
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, index * 200); // Add a delay for each element
         }
       });
     }
   
     window.addEventListener('scroll', checkVisibility);
     checkVisibility(); // Initial check
+  
+    // Adjust scroll position for in-page links to account for the navbar
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    const links = document.querySelectorAll('a[href^="#"]');
+  
+    links.forEach(link => {
+      link.addEventListener('click', function(event) {
+        const targetId = this.getAttribute('href').substring(1);
+        if (targetId) {
+          event.preventDefault();
+          const targetElement = document.getElementById(targetId);
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+  
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   });
+    
   
