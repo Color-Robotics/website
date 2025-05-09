@@ -21,12 +21,6 @@ interface BenefitItemProps {
     text: string;
 }
 
-interface TestimonialCardProps {
-    quote: string;
-    author: string;
-    title: string;
-    bgGradient: string;
-}
 
 interface FeatureCardProps {
     icon: React.ReactNode;
@@ -81,7 +75,6 @@ export default function LandingPage() {
                         <div className="hidden md:flex space-x-8 items-center">
                             <NavLink href="#features">Platform</NavLink>
                             <NavLink href="#solutions">Solutions</NavLink>
-                            <NavLink href="#cases">Case Studies</NavLink>
                             <NavLink href="#pricing">Pricing</NavLink>
                             <NavLink href="#about">About</NavLink>
                         </div>
@@ -111,7 +104,6 @@ export default function LandingPage() {
                     <div className="flex flex-col space-y-6">
                         <NavLink href="#features" onClick={() => setMobileMenuOpen(false)}>Platform</NavLink>
                         <NavLink href="#solutions" onClick={() => setMobileMenuOpen(false)}>Solutions</NavLink>
-                        <NavLink href="#cases" onClick={() => setMobileMenuOpen(false)}>Case Studies</NavLink>
                         <NavLink href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</NavLink>
                         <NavLink href="#about" onClick={() => setMobileMenuOpen(false)}>About</NavLink>
                         <div className="pt-6 border-t border-slate-800">
@@ -637,7 +629,7 @@ export default function LandingPage() {
                             </div>
 
                             <button className="inline-flex items-center px-5 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 group">
-                                <span>See Industry Solution</span>
+                                <span>Get Solution</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>
@@ -676,92 +668,6 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* Testimonials & Case Studies */}
-            <section id="cases" className="py-20 md:py-32 relative">
-                <div className="container mx-auto px-6 relative">
-                    <div className="max-w-3xl mx-auto text-center mb-20">
-                        <div className="bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl h-1 w-16 mx-auto mb-6"></div>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100">
-                            Success Stories
-                        </h2>
-                        <p className="text-lg text-slate-400">
-                            See how leading companies have transformed their robotic operations and dramatically reduced downtime.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <TestimonialCard
-                            quote="Color Robotics has cut our MTTR by 58%. Our maintenance team can now troubleshoot complex issues with the AI assistant guiding them every step of the way."
-                            author="Sarah Johnson"
-                            title="Automation Director, GlobalLogistics Inc."
-                            bgGradient="from-cyan-500 to-indigo-600"
-                        />
-
-                        <TestimonialCard
-                            quote="The predictive maintenance has been a game-changer. We've avoided 17 major failures in the last quarter alone, saving us countless hours of downtime."
-                            author="Michael Chang"
-                            title="CTO, FutureTech Manufacturing"
-                            bgGradient="from-indigo-500 to-violet-600"
-                        />
-
-                        <TestimonialCard
-                            quote="Our technicians can now resolve issues that previously required specialist support. The step-by-step guidance has been like having an expert at their side 24/7."
-                            author="David Rodriguez"
-                            title="Operations Manager, AutomateNow Solutions"
-                            bgGradient="from-blue-500 to-cyan-500"
-                        />
-                    </div>
-
-                    {/* Case Study Feature */}
-                    <div className="mt-24 relative overflow-hidden rounded-2xl">
-                        <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-30 blur-lg"></div>
-                        <div className="relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden">
-                            <div className="grid md:grid-cols-2">
-                                <div className="p-8 md:p-12 flex flex-col justify-center">
-                                    <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-400 uppercase tracking-wide mb-3">
-                                        Case Study
-                                    </div>
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-4">How MidWest Manufacturing Slashed MTTR by 62%</h3>
-                                    <p className="text-slate-400 mb-8">
-                                        Learn how a leading manufacturer with 45+ industrial robots reduced downtime costs by $2.8M annually while enabling frontline workers to resolve complex issues independently.
-                                    </p>
-                                    <div className="mt-auto">
-                                        <button className="inline-flex items-center px-5 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 group">
-                                            <span>Read Case Study</span>
-                                            <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="md:h-96 bg-slate-900">
-                                    <div className="h-full flex items-center justify-center p-8">
-                                        <div className="text-center">
-                                            <div className="inline-block p-4 rounded-full bg-indigo-500/10 mb-6">
-                                                <Activity size={64} className="text-indigo-400" />
-                                            </div>
-                                            <div className="space-y-4">
-                                                <div className="space-y-2">
-                                                    <p className="text-slate-400 text-sm">Before Color Robotics</p>
-                                                    <div className="h-4 w-full bg-slate-700 rounded-full">
-                                                        <div className="h-4 bg-red-500 rounded-full" style={{ width: '100%' }}></div>
-                                                    </div>
-                                                    <p className="text-slate-300 text-sm">3.2 hours average MTTR</p>
-                                                </div>
-                                                <div className="space-y-2">
-                                                    <p className="text-slate-400 text-sm">After Color Robotics</p>
-                                                    <div className="h-4 w-full bg-slate-700 rounded-full">
-                                                        <div className="h-4 bg-emerald-500 rounded-full" style={{ width: '38%' }}></div>
-                                                    </div>
-                                                    <p className="text-slate-300 text-sm">1.2 hours average MTTR</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* CTA Section */}
             <section className="py-20 md:py-32 relative bg-slate-900">
@@ -942,25 +848,6 @@ function BenefitItem({ text }: BenefitItemProps) {
     );
 }
 
-function TestimonialCard({ quote, author, title, bgGradient }: TestimonialCardProps) {
-    return (
-        <div className="relative group">
-            <div className={`absolute -inset-0.5 bg-gradient-to-r ${bgGradient} rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500`}></div>
-            <div className="relative p-8 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500 transition-all duration-300 h-full">
-                <div className="flex items-center space-x-1 mb-6">
-                    {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
-                    ))}
-                </div>
-                <p className="text-slate-300 mb-8 text-lg">"{quote}"</p>
-                <div>
-                    <h4 className="font-semibold text-white">{author}</h4>
-                    <p className="text-slate-400 text-sm">{title}</p>
-                </div>
-            </div>
-        </div>
-    );
-}
 
 function FeatureCard({ icon, title, description }: FeatureCardProps) {
     return (
