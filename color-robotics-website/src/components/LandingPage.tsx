@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, ChevronDown, ExternalLink, ArrowUpRight, Menu, X, Star } from 'lucide-react';
+import { ArrowRight, ChevronDown, ExternalLink, ArrowUpRight, Menu, X, Star, Activity, ShieldCheck, Clock, Cpu, BarChart3, Zap, Bot, Wrench, Layout, AlertCircle, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 // Types for component props
@@ -34,13 +34,9 @@ interface FeatureCardProps {
     description: string;
 }
 
-interface StepItemProps {
-    number: string;
-    title: string;
-    description: string;
-    imageSrc: string;
-    imageAlt: string;
-    isLeft: boolean;
+interface StatsItemProps {
+    value: string;
+    label: string;
 }
 
 type IndustryTabType = 'warehousing' | 'manufacturing' | 'food' | 'electronics';
@@ -146,60 +142,39 @@ export default function LandingPage() {
                 <div className="container mx-auto px-6 relative">
                     <div className="max-w-4xl mx-auto text-center">
                         <div className="inline-block mb-6 py-1 px-3 border border-slate-700 rounded-full text-xs text-cyan-400 font-medium uppercase tracking-wider">
-                            Version 2.3 Just Released
+                            AI-Powered Robotics Command Center
                         </div>
 
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
-                            Unify Your Robotic <br className="hidden md:block" /> Automation Stack
+                            Slash MTTR and <br className="hidden md:block" />Maximize Uptime
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
-                            The complete integration and observability platform for industrial robotics, connecting your robots, PLCs, and sensors in one intelligent system.
+                            The AI-powered command center for industrial robotics that predicts issues, diagnoses failures, and guides your team to faster resolution - all from one intelligent platform.
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
                             <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center group">
-                                <span>Request Demo</span>
+                                <span>Book a Demo</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </button>
                             <button className="px-8 py-4 rounded-full bg-slate-800 hover:bg-slate-700 text-white transition-all duration-300 flex items-center justify-center">
-                                <span>View Documentation</span>
+                                <span>See How It Works</span>
                             </button>
-                        </div>
-
-                        <div className="flex justify-center max-w-lg mx-auto mb-12">
-                            <div className="flex p-1 rounded-full border border-slate-700 bg-slate-800/50 w-full">
-                                <div className="flex items-center space-x-1 w-full">
-                                    <input
-                                        type="email"
-                                        placeholder="Enter your work email"
-                                        className="flex-grow py-3 px-4 bg-transparent text-white placeholder-slate-500 focus:outline-none"
-                                    />
-                                    <button className="py-3 px-6 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 text-sm">
-                                        Start Free Trial
-                                    </button>
-                                </div>
-                            </div>
                         </div>
 
                         <div className="flex justify-center items-center space-x-8 text-sm text-slate-500">
                             <div className="flex items-center">
-                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>No credit card required</span>
+                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
+                                <span>No code integration</span>
                             </div>
                             <div className="flex items-center">
-                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>14-day free trial</span>
+                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
+                                <span>Works with any brand</span>
                             </div>
                             <div className="flex items-center">
-                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Cancel anytime</span>
+                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
+                                <span>Setup in hours, not weeks</span>
                             </div>
                         </div>
                     </div>
@@ -208,32 +183,136 @@ export default function LandingPage() {
                 <div className="mt-20 relative max-w-screen-xl mx-auto">
                     <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-20 blur-xl"></div>
                     <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden shadow-2xl">
-                        {/* Dashboard visualization */}
-                        <Image
-                            src="/images/dashboard.png"
-                            alt="Color Robotics Dashboard"
-                            width={1200}
-                            height={600}
-                            className="w-full h-auto"
-                        />
+                        {/* Dashboard visualization - placeholder until you have a real dashboard image */}
+                        <div className="aspect-video bg-gradient-to-br from-slate-900 to-slate-800 relative p-6">
+                            <div className="grid grid-cols-4 gap-4 h-full">
+                                <div className="col-span-3 bg-slate-800/60 rounded-xl border border-slate-700 p-4 flex flex-col">
+                                    <div className="border-b border-slate-700 pb-2 mb-3 flex items-center justify-between">
+                                        <div className="text-lg font-semibold text-white">Real-time Facility Status</div>
+                                        <div className="flex space-x-3">
+                                            <div className="h-2 w-2 bg-green-500 rounded-full"></div>
+                                            <div className="h-2 w-2 bg-yellow-500 rounded-full"></div>
+                                            <div className="h-2 w-2 bg-red-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-3 gap-4 mb-4">
+                                        <div className="bg-slate-700/50 rounded-lg p-4">
+                                            <div className="text-cyan-400 mb-2 text-sm flex items-center">
+                                                <Bot className="h-4 w-4 mr-1" /> Robots Online
+                                            </div>
+                                            <div className="text-2xl font-bold">42/45</div>
+                                            <div className="text-xs text-slate-400">3 in maintenance</div>
+                                        </div>
+                                        <div className="bg-slate-700/50 rounded-lg p-4">
+                                            <div className="text-emerald-400 mb-2 text-sm flex items-center">
+                                                <Activity className="h-4 w-4 mr-1" /> Efficiency Rate
+                                            </div>
+                                            <div className="text-2xl font-bold">94.2%</div>
+                                            <div className="text-xs text-emerald-500">↑ 2.1% from last week</div>
+                                        </div>
+                                        <div className="bg-slate-700/50 rounded-lg p-4">
+                                            <div className="text-indigo-400 mb-2 text-sm flex items-center">
+                                                <Clock className="h-4 w-4 mr-1" /> Avg MTTR
+                                            </div>
+                                            <div className="text-2xl font-bold">47 min</div>
+                                            <div className="text-xs text-indigo-500">↓ 23% from baseline</div>
+                                        </div>
+                                    </div>
+                                    <div className="flex-1 bg-slate-700/40 rounded-lg relative">
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-full px-6">
+                                                <div className="mb-3 flex items-center justify-between">
+                                                    <div className="text-sm text-slate-400">Facility Floor Plan</div>
+                                                    <div className="text-xs text-cyan-500">Live View</div>
+                                                </div>
+                                                <div className="h-3 w-full bg-slate-700 rounded-full mb-2">
+                                                    <div className="h-3 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-full" style={{ width: '67%' }}></div>
+                                                </div>
+                                                <div className="grid grid-cols-6 gap-2">
+                                                    {[...Array(24)].map((_, i) => (
+                                                        <div 
+                                                            key={i} 
+                                                            className={`aspect-square rounded-md ${
+                                                                i % 7 === 0 ? 'bg-yellow-500/20 border border-yellow-500/40' : 
+                                                                i % 11 === 0 ? 'bg-red-500/20 border border-red-500/40' : 
+                                                                'bg-green-500/20 border border-green-500/40'
+                                                            }`}
+                                                        >
+                                                            {i % 7 === 0 && <AlertCircle className="h-3 w-3 m-1 text-yellow-500" />}
+                                                            {i % 11 === 0 && <AlertCircle className="h-3 w-3 m-1 text-red-500" />}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-span-1 flex flex-col gap-4">
+                                    <div className="bg-slate-800/60 rounded-xl border border-slate-700 p-4 flex-1">
+                                        <div className="text-sm font-semibold mb-3 text-slate-300">Active Alerts</div>
+                                        <div className="space-y-3">
+                                            <div className="bg-red-950/30 border border-red-900/50 rounded-lg p-2 text-xs">
+                                                <div className="flex items-center text-red-400 mb-1">
+                                                    <AlertCircle className="h-3 w-3 mr-1" /> Critical
+                                                </div>
+                                                <div className="font-medium text-slate-200">Pick & Place #3 motor anomaly</div>
+                                                <div className="text-slate-400 mt-1">12 min ago</div>
+                                            </div>
+                                            <div className="bg-yellow-950/30 border border-yellow-900/50 rounded-lg p-2 text-xs">
+                                                <div className="flex items-center text-yellow-400 mb-1">
+                                                    <AlertCircle className="h-3 w-3 mr-1" /> Warning
+                                                </div>
+                                                <div className="font-medium text-slate-200">Conveyor belt deviation</div>
+                                                <div className="text-slate-400 mt-1">24 min ago</div>
+                                            </div>
+                                            <div className="bg-blue-950/30 border border-blue-900/50 rounded-lg p-2 text-xs">
+                                                <div className="flex items-center text-blue-400 mb-1">
+                                                    <AlertCircle className="h-3 w-3 mr-1" /> Info
+                                                </div>
+                                                <div className="font-medium text-slate-200">Preventive maintenance due</div>
+                                                <div className="text-slate-400 mt-1">1 hour ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="bg-slate-800/60 rounded-xl border border-slate-700 p-4 flex-1">
+                                        <div className="text-sm font-semibold mb-3 text-slate-300">Predictive Insights</div>
+                                        <div className="bg-indigo-950/30 border border-indigo-900/50 rounded-lg p-3 text-xs">
+                                            <div className="font-medium text-white mb-2">AI Assistant Analysis</div>
+                                            <div className="text-slate-300">Sorting arm #8 showing early signs of wear. Recommend inspection within 72 hours.</div>
+                                            <button className="mt-2 w-full py-1.5 rounded bg-indigo-600/50 hover:bg-indigo-600 text-white text-xs transition-colors">
+                                                Schedule Maintenance
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-slate-950 to-transparent"></div>
             </section>
 
-            {/* Trust + Logos Section */}
-            <section className="py-16 relative">
+            {/* Stats Section */}
+            <section className="py-20 relative">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
-                        <p className="text-slate-400 mb-8">TRUSTED BY INDUSTRY LEADERS IN AUTOMATION</p>
+                        <p className="text-slate-400 uppercase tracking-wider text-sm font-semibold mb-4">TRUSTED BY INDUSTRY LEADERS</p>
                         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                            <div className="h-8 w-32 bg-slate-800 rounded"></div>
-                            <div className="h-8 w-32 bg-slate-800 rounded"></div>
-                            <div className="h-8 w-32 bg-slate-800 rounded"></div>
-                            <div className="h-8 w-32 bg-slate-800 rounded"></div>
-                            <div className="h-8 w-32 bg-slate-800 rounded"></div>
+                            {/* Placeholder company logos */}
+                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
+                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
+                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
+                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
+                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
                         </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mt-10">
+                        <StatsItem value="62%" label="Average reduction in MTTR" />
+                        <StatsItem value="38%" label="Increase in uptime" />
+                        <StatsItem value="73%" label="Faster issue detection" />
+                        <StatsItem value="87%" label="Teams report easier troubleshooting" />
                     </div>
                 </div>
             </section>
@@ -242,102 +321,77 @@ export default function LandingPage() {
             <section id="features" className="py-20 md:py-32 relative">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mx-auto text-center mb-20">
-                        <div className="bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl h-1 w-16 mx-auto mb-6"></div>
+                        <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-400 uppercase tracking-wide mb-3">
+                            Your AI-Powered Command Center
+                        </div>
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100">
-                            One Platform to Rule<br />All Your Robots
+                            Reimagine Robotic Operations
                         </h2>
                         <p className="text-lg text-slate-400">
-                            Streamline operations, reduce downtime, and optimize performance with our comprehensive robotics integration and observability platform.
+                            Our platform combines real-time monitoring, AI-powered diagnostics, and guided resolution to reduce downtime and maximize productivity.
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="relative group">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
-                            <div className="relative p-8 rounded-xl bg-slate-800 border border-slate-700 hover:border-cyan-500 transition-all duration-300 h-full">
-                                <div className="mb-6 inline-flex p-3 rounded-lg bg-slate-700/50">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3.27 12C3.27 7.4 7.4 3.27 12 3.27L12 12L12 12L12 20.73C7.4 20.73 3.27 16.6 3.27 12Z" fill="#0EA5E9" />
-                                        <path d="M12 20.73L12 12L20.73 12C20.73 16.6 16.6 20.73 12 20.73Z" fill="#818CF8" />
-                                        <path d="M20.73 12L12 12L12 3.27C16.6 3.27 20.73 7.4 20.73 12Z" fill="#60A5FA" />
-                                    </svg>
-                                </div>
-                                <h3 className="text-xl font-semibold mb-3 text-white">Unified Integration</h3>
-                                <p className="text-slate-400 mb-4">
-                                    Connect your entire automation stack including PLCs, robots, and sensors from any manufacturer into a single, coherent system.
-                                </p>
-                                <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 text-sm">
-                                    Learn more
-                                    <ArrowRight size={14} className="ml-1" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="relative group">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
-                            <div className="relative p-8 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500 transition-all duration-300 h-full">
-                                <div className="mb-6 inline-flex p-3 rounded-lg bg-slate-700/50">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#0EA5E9" strokeWidth="2" />
-                                        <path d="M22 12C22 6.48 17.52 2 12 2" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" />
-                                        <path d="M15 11L18 14L21 11" stroke="#6366F1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </div>
-                                <h3 className="text-xl font-semibold mb-3 text-white">Real-time Monitoring</h3>
-                                <p className="text-slate-400 mb-4">
-                                    Get comprehensive visibility into all your robotic systems with real-time dashboards, analytics, and automated alerts.
-                                </p>
-                                <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 text-sm">
-                                    Learn more
-                                    <ArrowRight size={14} className="ml-1" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="relative group">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
-                            <div className="relative p-8 rounded-xl bg-slate-800 border border-slate-700 hover:border-violet-500 transition-all duration-300 h-full">
-                                <div className="mb-6 inline-flex p-3 rounded-lg bg-slate-700/50">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2L4 6V18L12 22L20 18V6L12 2Z" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M12 22V16" stroke="#0EA5E9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        <circle cx="12" cy="13" r="3" fill="#6366F1" />
-                                    </svg>
-                                </div>
-                                <h3 className="text-xl font-semibold mb-3 text-white">AI-Powered Analytics</h3>
-                                <p className="text-slate-400 mb-4">
-                                    Leverage machine learning to identify optimization opportunities, predict failures, and automate troubleshooting.
-                                </p>
-                                <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 text-sm">
-                                    Learn more
-                                    <ArrowRight size={14} className="ml-1" />
-                                </a>
-                            </div>
-                        </div>
+                        <FeatureCard 
+                            icon={<Activity size={32} className="text-cyan-400" />}
+                            title="Unified Monitoring"
+                            description="Connect all your robots, PLCs, and sensors—regardless of brand—into a single, real-time command center."
+                        />
+                        <FeatureCard 
+                            icon={<Cpu size={32} className="text-indigo-400" />}
+                            title="AI-Powered Diagnostics"
+                            description="Our AI assistant identifies issues before they cause downtime and provides expert guidance to your team."
+                        />
+                        <FeatureCard 
+                            icon={<BarChart3 size={32} className="text-purple-400" />}
+                            title="Predictive Analytics"
+                            description="Machine learning models detect anomalies and predict potential failures days or weeks in advance."
+                        />
                     </div>
 
                     {/* Feature Detail Row */}
-                    <div className="mt-20 grid md:grid-cols-2 gap-16 items-center">
+                    <div className="mt-32 grid md:grid-cols-2 gap-16 items-center">
                         <div className="relative">
                             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-20 blur-xl"></div>
-                            <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden p-2 shadow-2xl">
-                                <Image
-                                    src="/images/integration.png"
-                                    alt="Integration Dashboard"
-                                    width={600}
-                                    height={500}
-                                    className="w-full h-auto rounded-xl"
-                                />
+                            <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden p-4 shadow-2xl">
+                                <div className="bg-slate-900 rounded-xl p-4 h-80">
+                                    <div className="border-b border-slate-800 pb-3 mb-4">
+                                        <div className="text-lg font-semibold text-white">AI Issue Resolution Assistant</div>
+                                    </div>
+                                    <div className="space-y-4">
+                                        <div className="bg-slate-800 rounded-lg p-3 text-sm">
+                                            <div className="font-medium text-cyan-400 mb-1">Color Robotics AI</div>
+                                            <div className="text-slate-300">I've detected an abnormal vibration pattern in the articulation joint of Robot #12. Based on the frequency spectrum, this appears to be a bearing issue.</div>
+                                        </div>
+                                        <div className="bg-slate-800 rounded-lg p-3 text-sm">
+                                            <div className="font-medium text-cyan-400 mb-1">Color Robotics AI</div>
+                                            <div className="text-slate-300">Would you like me to walk you through the diagnostic procedure or show similar issues from the knowledge base?</div>
+                                            <div className="mt-3 flex space-x-3">
+                                                <button className="flex-1 py-1.5 rounded bg-indigo-600 text-white text-xs">
+                                                    Diagnostic Procedure
+                                                </button>
+                                                <button className="flex-1 py-1.5 rounded bg-slate-700 text-white text-xs">
+                                                    Similar Issues
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="bg-slate-800 rounded-lg p-3 text-sm">
+                                            <div className="font-medium text-cyan-400 mb-1">Color Robotics AI</div>
+                                            <div className="text-slate-300">I've notified the maintenance team and prepared a checklist. The average resolution time for similar issues is 37 minutes.</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div>
-                            <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-400 uppercase tracking-wide mb-3">
-                                Integration Made Easy
+                            <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-400 uppercase tracking-wide mb-3">
+                                Virtual AI Engineer
                             </div>
-                            <h3 className="text-3xl md:text-4xl font-bold mb-6">Seamlessly Connect Your Automation Ecosystem</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold mb-6">Your Team's 24/7 Support Partner</h3>
                             <p className="text-slate-400 mb-8">
-                                Stop dealing with siloed systems and incompatible platforms. Color Robotics unifies your complete automation stack regardless of manufacturer or age.
+                                Our AI Assistant acts as a virtual engineer, providing expert guidance even when your technical team isn't available.
                             </p>
 
                             <div className="space-y-6">
@@ -348,8 +402,8 @@ export default function LandingPage() {
                                         </svg>
                                     </div>
                                     <div className="ml-4">
-                                        <h4 className="text-lg font-medium text-white">Multi-vendor Support</h4>
-                                        <p className="text-slate-400">Connect any PLC, robot, or sensor regardless of brand with our extensive library of pre-built connectors.</p>
+                                        <h4 className="text-lg font-medium text-white">Root Cause Analysis</h4>
+                                        <p className="text-slate-400">Intelligent diagnosis that goes beyond symptoms to identify the underlying cause of issues.</p>
                                     </div>
                                 </div>
 
@@ -360,8 +414,8 @@ export default function LandingPage() {
                                         </svg>
                                     </div>
                                     <div className="ml-4">
-                                        <h4 className="text-lg font-medium text-white">No-code Configuration</h4>
-                                        <p className="text-slate-400">Configure integrations through an intuitive visual interface without writing a single line of code.</p>
+                                        <h4 className="text-lg font-medium text-white">Step-by-Step Guidance</h4>
+                                        <p className="text-slate-400">Clear instructions that empower frontline workers to resolve complex issues independently.</p>
                                     </div>
                                 </div>
 
@@ -372,8 +426,8 @@ export default function LandingPage() {
                                         </svg>
                                     </div>
                                     <div className="ml-4">
-                                        <h4 className="text-lg font-medium text-white">Secure Remote Access</h4>
-                                        <p className="text-slate-400">Manage your automation systems securely from anywhere with role-based access control.</p>
+                                        <h4 className="text-lg font-medium text-white">Institutional Knowledge</h4>
+                                        <p className="text-slate-400">Learns from every incident to build a knowledge base that preserves expertise across your organization.</p>
                                     </div>
                                 </div>
                             </div>
@@ -384,24 +438,65 @@ export default function LandingPage() {
                     <div className="mt-32 grid md:grid-cols-2 gap-16 items-center">
                         <div className="md:order-2 relative">
                             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-20 blur-xl"></div>
-                            <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden p-2 shadow-2xl">
-                                <Image
-                                    src="/images/analytics.png"
-                                    alt="AI Analytics Dashboard"
-                                    width={600}
-                                    height={500}
-                                    className="w-full h-auto rounded-xl"
-                                />
+                            <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden p-4 shadow-2xl">
+                                <div className="bg-slate-900 rounded-xl p-4 h-80">
+                                    <div className="border-b border-slate-800 pb-3 mb-4">
+                                        <div className="text-lg font-semibold text-white">Predictive Maintenance Dashboard</div>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4 mb-4">
+                                        <div className="bg-slate-800 rounded-lg p-3">
+                                            <div className="text-sm text-slate-400 mb-1">Health Score</div>
+                                            <div className="text-xl font-bold text-white">94%</div>
+                                            <div className="h-2 w-full bg-slate-700 rounded-full mt-2">
+                                                <div className="h-2 bg-gradient-to-r from-green-500 to-green-400 rounded-full" style={{ width: '94%' }}></div>
+                                            </div>
+                                        </div>
+                                        <div className="bg-slate-800 rounded-lg p-3">
+                                            <div className="text-sm text-slate-400 mb-1">Predicted Issues</div>
+                                            <div className="text-xl font-bold text-white">3</div>
+                                            <div className="flex items-center mt-2 text-xs text-yellow-400">
+                                                <AlertCircle size={12} className="mr-1" />
+                                                <span>Requires attention</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="bg-slate-800 rounded-lg p-3 h-40">
+                                        <div className="text-sm text-slate-400 mb-3">Component Health Forecast (30 days)</div>
+                                        <div className="h-32 w-full relative">
+                                            {/* Simple line chart visualization */}
+                                            <div className="absolute bottom-0 left-0 right-0 h-px bg-slate-700"></div>
+                                            <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-700"></div>
+                                            <svg viewBox="0 0 100 50" className="h-full w-full">
+                                                <path
+                                                    d="M0,25 C10,20 20,18 30,5 C40,15 50,25 60,20 C70,15 80,5 90,10 L100,15"
+                                                    fill="none"
+                                                    stroke="rgba(6, 182, 212, 0.5)"
+                                                    strokeWidth="1.5"
+                                                />
+                                                <path
+                                                    d="M0,25 C10,20 20,18 30,5 C40,15 50,25 60,20 C70,15 80,5 90,10 L100,15"
+                                                    fill="none"
+                                                    stroke="#06b6d4"
+                                                    strokeWidth="1.5"
+                                                    strokeDasharray="1 1"
+                                                />
+                                            </svg>
+                                            {/* Prediction point */}
+                                            <div className="absolute right-10 top-1/2 h-3 w-3 bg-yellow-500 rounded-full transform -translate-y-1/2 animate-pulse"></div>
+                                            <div className="absolute right-28 bottom-10 h-2 w-2 bg-red-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div className="md:order-1">
-                            <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-400 uppercase tracking-wide mb-3">
-                                Predictive Intelligence
+                            <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-400 uppercase tracking-wide mb-3">
+                                Prevent Downtime
                             </div>
-                            <h3 className="text-3xl md:text-4xl font-bold mb-6">Anticipate Issues Before They Happen</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold mb-6">Predict Issues Before They Impact Production</h3>
                             <p className="text-slate-400 mb-8">
-                                Our AI-powered platform continuously monitors your systems to detect anomalies and predict potential failures before they impact operations.
+                                Our advanced analytics engine continuously monitors your automation systems to detect anomalies and predict potential failures days or even weeks before they occur.
                             </p>
 
                             <div className="space-y-6">
@@ -412,8 +507,8 @@ export default function LandingPage() {
                                         </svg>
                                     </div>
                                     <div className="ml-4">
-                                        <h4 className="text-lg font-medium text-white">Anomaly Detection</h4>
-                                        <p className="text-slate-400">Machine learning algorithms that identify unusual patterns in sensor data and operational metrics.</p>
+                                        <h4 className="text-lg font-medium text-white">Machine Learning Models</h4>
+                                        <p className="text-slate-400">Purpose-built algorithms trained on millions of hours of industrial robot operation data.</p>
                                     </div>
                                 </div>
 
@@ -424,8 +519,8 @@ export default function LandingPage() {
                                         </svg>
                                     </div>
                                     <div className="ml-4">
-                                        <h4 className="text-lg font-medium text-white">Predictive Maintenance</h4>
-                                        <p className="text-slate-400">Schedule maintenance based on actual equipment condition, not arbitrary intervals.</p>
+                                        <h4 className="text-lg font-medium text-white">Early Warning System</h4>
+                                        <p className="text-slate-400">Receive alerts about developing issues with clear severity ratings and recommended actions.</p>
                                     </div>
                                 </div>
 
@@ -436,8 +531,8 @@ export default function LandingPage() {
                                         </svg>
                                     </div>
                                     <div className="ml-4">
-                                        <h4 className="text-lg font-medium text-white">Automated Troubleshooting</h4>
-                                        <p className="text-slate-400">AI assistant that diagnoses issues and suggests solutions based on historical data.</p>
+                                        <h4 className="text-lg font-medium text-white">Maintenance Optimization</h4>
+                                        <p className="text-slate-400">Schedule maintenance based on actual equipment condition, not calendar dates or usage hours.</p>
                                     </div>
                                 </div>
                             </div>
@@ -458,7 +553,7 @@ export default function LandingPage() {
                             Purpose-Built for Your Industry
                         </h2>
                         <p className="text-lg text-slate-400">
-                            Our platform is optimized for the unique automation challenges across different industries.
+                            Our platform is optimized for the unique automation challenges in manufacturing and warehousing environments.
                         </p>
                     </div>
 
@@ -490,53 +585,53 @@ export default function LandingPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center mt-12">
                         <div>
                             <h3 className="text-2xl md:text-3xl font-bold mb-6">
-                                {activeDemoTab === 'warehousing' && 'Optimize Your Warehouse Automation'}
-                                {activeDemoTab === 'manufacturing' && 'Transform Your Production Lines'}
-                                {activeDemoTab === 'food' && 'Streamline Food Processing Operations'}
-                                {activeDemoTab === 'electronics' && 'Perfect Precision in Electronics Assembly'}
+                                {activeDemoTab === 'warehousing' && 'Maximize Uptime for Warehouse Automation'}
+                                {activeDemoTab === 'manufacturing' && 'Transform Your Production Line Efficiency'}
+                                {activeDemoTab === 'food' && 'Ensure Continuous Food Processing Operations'}
+                                {activeDemoTab === 'electronics' && 'Maintain Precision in Electronics Assembly'}
                             </h3>
 
                             <p className="text-slate-400 mb-8">
-                                {activeDemoTab === 'warehousing' && 'Unify conveyor, AMR, and sortation systems while reducing downtime and improving throughput in high-volume environments.'}
-                                {activeDemoTab === 'manufacturing' && 'Improve OEE with version control for PLCs/robotics, predictive maintenance, and faster error resolution for your production lines.'}
-                                {activeDemoTab === 'food' && 'Ensure consistency and uptime for food processing equipment with centralized oversight and real-time performance monitoring.'}
-                                {activeDemoTab === 'electronics' && 'Handle high-mix, low-volume production with rapid integration of new equipment and anomaly detection for quality control.'}
+                                {activeDemoTab === 'warehousing' && 'Quickly diagnose and resolve issues across AMRs, conveyors, and sortation systems to keep products flowing and meet SLAs.'}
+                                {activeDemoTab === 'manufacturing' && 'Ensure continuous operation of robotic cells with real-time monitoring, predictive maintenance, and guided troubleshooting.'}
+                                {activeDemoTab === 'food' && 'Maintain the highest levels of operational reliability in a demanding environment where downtime directly impacts food quality.'}
+                                {activeDemoTab === 'electronics' && 'Ensure precise, consistent assembly with early detection of tool wear and calibration drift in high-precision environments.'}
                             </p>
 
                             <div className="space-y-4 mb-8">
                                 {activeDemoTab === 'warehousing' && (
                                     <>
-                                        <BenefitItem text="Reduce picking errors by up to 73%" />
-                                        <BenefitItem text="Cut integration time for new automation by 58%" />
-                                        <BenefitItem text="Lower maintenance costs by 32%" />
-                                        <BenefitItem text="Achieve 99.8% order accuracy" />
+                                        <BenefitItem text="Reduce mean-time-to-repair by up to 62%" />
+                                        <BenefitItem text="Predict AMR failures 7-14 days in advance" />
+                                        <BenefitItem text="Increase first-time fix rate to 93%" />
+                                        <BenefitItem text="Maintain 99.8% automation uptime" />
                                     </>
                                 )}
 
                                 {activeDemoTab === 'manufacturing' && (
                                     <>
-                                        <BenefitItem text="Increase OEE by up to 25%" />
-                                        <BenefitItem text="Reduce unplanned downtime by 45%" />
-                                        <BenefitItem text="Cut changeover times by 35%" />
-                                        <BenefitItem text="Improve first-time-right quality by 27%" />
+                                        <BenefitItem text="Detect robot path deviations before quality issues occur" />
+                                        <BenefitItem text="Cut unplanned downtime by 45%" />
+                                        <BenefitItem text="Reduce troubleshooting time by 73%" />
+                                        <BenefitItem text="Extend equipment life by 22%" />
                                     </>
                                 )}
 
                                 {activeDemoTab === 'food' && (
                                     <>
-                                        <BenefitItem text="Ensure 99.9% product consistency" />
-                                        <BenefitItem text="Reduce compliance reporting time by 67%" />
-                                        <BenefitItem text="Cut waste by up to 28%" />
-                                        <BenefitItem text="Improve batch changeover speed by 41%" />
+                                        <BenefitItem text="Maintain consistent processing speeds 24/7" />
+                                        <BenefitItem text="Predict sanitization needs before quality impacts" />
+                                        <BenefitItem text="Reduce food waste from equipment issues by 28%" />
+                                        <BenefitItem text="Improve batch changeover efficiency by 41%" />
                                     </>
                                 )}
 
                                 {activeDemoTab === 'electronics' && (
                                     <>
-                                        <BenefitItem text="Achieve sub-millimeter placement accuracy" />
-                                        <BenefitItem text="Reduce programming time by 64%" />
+                                        <BenefitItem text="Monitor sub-millimeter placement accuracy" />
+                                        <BenefitItem text="Detect subtle calibration drift before failures" />
                                         <BenefitItem text="Cut quality escapes by 83%" />
-                                        <BenefitItem text="Support rapid product changeovers" />
+                                        <BenefitItem text="Support rapid product changeovers with minimal downtime" />
                                     </>
                                 )}
                             </div>
@@ -550,13 +645,31 @@ export default function LandingPage() {
                         <div className="relative">
                             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-20 blur-xl"></div>
                             <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden shadow-2xl">
-                                <Image
-                                    src={`/images/${activeDemoTab}.png`}
-                                    alt={`${activeDemoTab} Solution`}
-                                    width={600}
-                                    height={400}
-                                    className="w-full h-auto"
-                                />
+                                {/* Industry-specific visualization - placeholder until you have real images */}
+                                <div className="aspect-video bg-gradient-to-br from-slate-900 to-slate-800 p-6">
+                                    <div className="h-full flex items-center justify-center">
+                                        <div className="text-center">
+                                            <div className="inline-block mb-6">
+                                                {activeDemoTab === 'warehousing' && <Bot size={80} className="text-cyan-500" />}
+                                                {activeDemoTab === 'manufacturing' && <Cpu size={80} className="text-indigo-500" />}
+                                                {activeDemoTab === 'food' && <Zap size={80} className="text-emerald-500" />}
+                                                {activeDemoTab === 'electronics' && <Wrench size={80} className="text-purple-500" />}
+                                            </div>
+                                            <h3 className="text-2xl font-bold mb-4 text-white">
+                                                {activeDemoTab === 'warehousing' && 'Warehouse Automation Command Center'}
+                                                {activeDemoTab === 'manufacturing' && 'Manufacturing Operation Hub'}
+                                                {activeDemoTab === 'food' && 'Food Processing Monitor'}
+                                                {activeDemoTab === 'electronics' && 'Precision Assembly Control'}
+                                            </h3>
+                                            <p className="text-slate-400 max-w-md mx-auto">
+                                                {activeDemoTab === 'warehousing' && 'Unified view of all automated storage, retrieval, and conveyor systems with real-time alerts and predictive insights.'}
+                                                {activeDemoTab === 'manufacturing' && 'Complete visibility across production cells with AI-guided diagnostics and virtual assistance for your team.'}
+                                                {activeDemoTab === 'food' && 'Specialized monitoring for food-safe environments with contamination prevention and regulatory compliance.'}
+                                                {activeDemoTab === 'electronics' && 'High-precision monitoring with micron-level deviation detection and component-level traceability.'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -572,29 +685,29 @@ export default function LandingPage() {
                             Success Stories
                         </h2>
                         <p className="text-lg text-slate-400">
-                            See how leading companies in your industry are transforming their operations with Color Robotics.
+                            See how leading companies have transformed their robotic operations and dramatically reduced downtime.
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
                         <TestimonialCard
-                            quote="Color Robotics helped us reduce integration time by 45% and cut downtime by over 30% in our warehouse operations."
+                            quote="Color Robotics has cut our MTTR by 58%. Our maintenance team can now troubleshoot complex issues with the AI assistant guiding them every step of the way."
                             author="Sarah Johnson"
                             title="Automation Director, GlobalLogistics Inc."
                             bgGradient="from-cyan-500 to-indigo-600"
                         />
 
                         <TestimonialCard
-                            quote="The predictive analytics have been a game-changer. We now address issues before they impact production, saving us millions."
+                            quote="The predictive maintenance has been a game-changer. We've avoided 17 major failures in the last quarter alone, saving us countless hours of downtime."
                             author="Michael Chang"
                             title="CTO, FutureTech Manufacturing"
                             bgGradient="from-indigo-500 to-violet-600"
                         />
 
                         <TestimonialCard
-                            quote="As a systems integrator, this platform has transformed how we support clients. Remote diagnostics has cut our travel time by 60%."
+                            quote="Our technicians can now resolve issues that previously required specialist support. The step-by-step guidance has been like having an expert at their side 24/7."
                             author="David Rodriguez"
-                            title="CEO, AutomateNow Solutions"
+                            title="Operations Manager, AutomateNow Solutions"
                             bgGradient="from-blue-500 to-cyan-500"
                         />
                     </div>
@@ -608,9 +721,9 @@ export default function LandingPage() {
                                     <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-400 uppercase tracking-wide mb-3">
                                         Case Study
                                     </div>
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-4">How Acme Robotics Achieved 43% Improved Efficiency</h3>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-4">How MidWest Manufacturing Slashed MTTR by 62%</h3>
                                     <p className="text-slate-400 mb-8">
-                                        Learn how a leading manufacturer unified their robotic operations across 12 global facilities, reduced downtime by 37%, and accelerated new product introductions.
+                                        Learn how a leading manufacturer with 45+ industrial robots reduced downtime costs by $2.8M annually while enabling frontline workers to resolve complex issues independently.
                                     </p>
                                     <div className="mt-auto">
                                         <button className="inline-flex items-center px-5 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 group">
@@ -619,14 +732,30 @@ export default function LandingPage() {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="md:h-96">
-                                    <Image
-                                        src="/images/case-study.png"
-                                        alt="Case Study"
-                                        width={600}
-                                        height={500}
-                                        className="h-full w-full object-cover"
-                                    />
+                                <div className="md:h-96 bg-slate-900">
+                                    <div className="h-full flex items-center justify-center p-8">
+                                        <div className="text-center">
+                                            <div className="inline-block p-4 rounded-full bg-indigo-500/10 mb-6">
+                                                <Activity size={64} className="text-indigo-400" />
+                                            </div>
+                                            <div className="space-y-4">
+                                                <div className="space-y-2">
+                                                    <p className="text-slate-400 text-sm">Before Color Robotics</p>
+                                                    <div className="h-4 w-full bg-slate-700 rounded-full">
+                                                        <div className="h-4 bg-red-500 rounded-full" style={{ width: '100%' }}></div>
+                                                    </div>
+                                                    <p className="text-slate-300 text-sm">3.2 hours average MTTR</p>
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <p className="text-slate-400 text-sm">After Color Robotics</p>
+                                                    <div className="h-4 w-full bg-slate-700 rounded-full">
+                                                        <div className="h-4 bg-emerald-500 rounded-full" style={{ width: '38%' }}></div>
+                                                    </div>
+                                                    <p className="text-slate-300 text-sm">1.2 hours average MTTR</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -652,34 +781,34 @@ export default function LandingPage() {
                                 <div className="relative">
                                     <div className="text-center max-w-3xl mx-auto">
                                         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100">
-                                            Ready to Transform Your Automation Operations?
+                                            Ready to Slash Your Robotic Downtime?
                                         </h2>
                                         <p className="text-slate-400 text-lg mb-8">
-                                            Schedule a personalized demo to see how our platform can address your specific integration and observability needs.
+                                            Book a personalized demo to see how our AI-powered platform can transform your robotic operations and dramatically reduce MTTR.
                                         </p>
 
                                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
                                             <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center group font-medium">
-                                                <span>Schedule Demo</span>
+                                                <span>Book Your Demo</span>
                                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                                             </button>
                                             <button className="px-8 py-4 rounded-full bg-slate-700 hover:bg-slate-600 text-white transition-all duration-300 flex items-center justify-center font-medium">
-                                                <span>Contact Sales</span>
+                                                <span>Talk to Sales</span>
                                             </button>
                                         </div>
 
-                                        <div className="flex justify-center items-center space-x-8 text-sm text-slate-500">
+                                        <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-500">
                                             <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                </svg>
+                                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
+                                                <span>15-minute setup</span>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
                                                 <span>Free implementation support</span>
                                             </div>
                                             <div className="flex items-center">
-                                                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                </svg>
-                                                <span>24/7 technical assistance</span>
+                                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
+                                                <span>ROI calculator included</span>
                                             </div>
                                         </div>
                                     </div>
@@ -706,7 +835,7 @@ export default function LandingPage() {
                                 </div>
                             </div>
                             <p className="mb-6">
-                                Unifying the world of industrial automation with intelligent integration and observability.
+                                The AI-powered command center for industrial robotics that predicts issues, diagnoses failures, and guides your team to faster resolution.
                             </p>
                             <div className="flex space-x-4 mb-8">
                                 <a href="#" className="text-slate-400 hover:text-white transition-colors">
@@ -829,6 +958,38 @@ function TestimonialCard({ quote, author, title, bgGradient }: TestimonialCardPr
                     <p className="text-slate-400 text-sm">{title}</p>
                 </div>
             </div>
+        </div>
+    );
+}
+
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
+    return (
+        <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
+            <div className="relative p-8 rounded-xl bg-slate-800 border border-slate-700 hover:border-cyan-500 transition-all duration-300 h-full">
+                <div className="mb-6 inline-flex p-3 rounded-lg bg-slate-700/50">
+                    {icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-white">{title}</h3>
+                <p className="text-slate-400 mb-4">
+                    {description}
+                </p>
+                <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 text-sm">
+                    Learn more
+                    <ArrowRight size={14} className="ml-1" />
+                </a>
+            </div>
+        </div>
+    );
+}
+
+function StatsItem({ value, label }: StatsItemProps) {
+    return (
+        <div className="bg-slate-800/60 rounded-xl border border-slate-700 p-6 text-center">
+            <div className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+                {value}
+            </div>
+            <div className="text-slate-400">{label}</div>
         </div>
     );
 }
