@@ -33,7 +33,7 @@ interface StatsItemProps {
     label: string;
 }
 
-type IndustryTabType = 'warehousing' | 'manufacturing' | 'food' | 'electronics';
+type IndustryTabType = 'warehousing' | 'manufacturing' | 'food';
 
 export default function LandingPage() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -75,14 +75,10 @@ export default function LandingPage() {
                         <div className="hidden md:flex space-x-8 items-center">
                             <NavLink href="#features">Platform</NavLink>
                             <NavLink href="#solutions">Solutions</NavLink>
-                            <NavLink href="#pricing">Pricing</NavLink>
                             <NavLink href="#about">About</NavLink>
                         </div>
 
                         <div className="hidden md:flex items-center space-x-4">
-                            <button className="text-white hover:text-cyan-400 transition-colors duration-300">
-                                Login
-                            </button>
                             <button className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center group">
                                 <span>Get Started</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -104,12 +100,8 @@ export default function LandingPage() {
                     <div className="flex flex-col space-y-6">
                         <NavLink href="#features" onClick={() => setMobileMenuOpen(false)}>Platform</NavLink>
                         <NavLink href="#solutions" onClick={() => setMobileMenuOpen(false)}>Solutions</NavLink>
-                        <NavLink href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</NavLink>
                         <NavLink href="#about" onClick={() => setMobileMenuOpen(false)}>About</NavLink>
                         <div className="pt-6 border-t border-slate-800">
-                            <button className="w-full py-3 mb-4 text-white hover:text-cyan-400 transition-colors duration-300">
-                                Login
-                            </button>
                             <button className="w-full py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center">
                                 <span>Get Started</span>
                                 <ArrowRight size={16} className="ml-2" />
@@ -175,109 +167,16 @@ export default function LandingPage() {
                 <div className="mt-20 relative max-w-screen-xl mx-auto">
                     <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-20 blur-xl"></div>
                     <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden shadow-2xl">
-                        {/* Dashboard visualization - placeholder until you have a real dashboard image */}
-                        <div className="aspect-video bg-gradient-to-br from-slate-900 to-slate-800 relative p-6">
-                            <div className="grid grid-cols-4 gap-4 h-full">
-                                <div className="col-span-3 bg-slate-800/60 rounded-xl border border-slate-700 p-4 flex flex-col">
-                                    <div className="border-b border-slate-700 pb-2 mb-3 flex items-center justify-between">
-                                        <div className="text-lg font-semibold text-white">Real-time Facility Status</div>
-                                        <div className="flex space-x-3">
-                                            <div className="h-2 w-2 bg-green-500 rounded-full"></div>
-                                            <div className="h-2 w-2 bg-yellow-500 rounded-full"></div>
-                                            <div className="h-2 w-2 bg-red-500 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                    <div className="grid grid-cols-3 gap-4 mb-4">
-                                        <div className="bg-slate-700/50 rounded-lg p-4">
-                                            <div className="text-cyan-400 mb-2 text-sm flex items-center">
-                                                <Bot className="h-4 w-4 mr-1" /> Robots Online
-                                            </div>
-                                            <div className="text-2xl font-bold">42/45</div>
-                                            <div className="text-xs text-slate-400">3 in maintenance</div>
-                                        </div>
-                                        <div className="bg-slate-700/50 rounded-lg p-4">
-                                            <div className="text-emerald-400 mb-2 text-sm flex items-center">
-                                                <Activity className="h-4 w-4 mr-1" /> Efficiency Rate
-                                            </div>
-                                            <div className="text-2xl font-bold">94.2%</div>
-                                            <div className="text-xs text-emerald-500">↑ 2.1% from last week</div>
-                                        </div>
-                                        <div className="bg-slate-700/50 rounded-lg p-4">
-                                            <div className="text-indigo-400 mb-2 text-sm flex items-center">
-                                                <Clock className="h-4 w-4 mr-1" /> Avg MTTR
-                                            </div>
-                                            <div className="text-2xl font-bold">47 min</div>
-                                            <div className="text-xs text-indigo-500">↓ 23% from baseline</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex-1 bg-slate-700/40 rounded-lg relative">
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="w-full px-6">
-                                                <div className="mb-3 flex items-center justify-between">
-                                                    <div className="text-sm text-slate-400">Facility Floor Plan</div>
-                                                    <div className="text-xs text-cyan-500">Live View</div>
-                                                </div>
-                                                <div className="h-3 w-full bg-slate-700 rounded-full mb-2">
-                                                    <div className="h-3 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-full" style={{ width: '67%' }}></div>
-                                                </div>
-                                                <div className="grid grid-cols-6 gap-2">
-                                                    {[...Array(24)].map((_, i) => (
-                                                        <div 
-                                                            key={i} 
-                                                            className={`aspect-square rounded-md ${
-                                                                i % 7 === 0 ? 'bg-yellow-500/20 border border-yellow-500/40' : 
-                                                                i % 11 === 0 ? 'bg-red-500/20 border border-red-500/40' : 
-                                                                'bg-green-500/20 border border-green-500/40'
-                                                            }`}
-                                                        >
-                                                            {i % 7 === 0 && <AlertCircle className="h-3 w-3 m-1 text-yellow-500" />}
-                                                            {i % 11 === 0 && <AlertCircle className="h-3 w-3 m-1 text-red-500" />}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-span-1 flex flex-col gap-4">
-                                    <div className="bg-slate-800/60 rounded-xl border border-slate-700 p-4 flex-1">
-                                        <div className="text-sm font-semibold mb-3 text-slate-300">Active Alerts</div>
-                                        <div className="space-y-3">
-                                            <div className="bg-red-950/30 border border-red-900/50 rounded-lg p-2 text-xs">
-                                                <div className="flex items-center text-red-400 mb-1">
-                                                    <AlertCircle className="h-3 w-3 mr-1" /> Critical
-                                                </div>
-                                                <div className="font-medium text-slate-200">Pick & Place #3 motor anomaly</div>
-                                                <div className="text-slate-400 mt-1">12 min ago</div>
-                                            </div>
-                                            <div className="bg-yellow-950/30 border border-yellow-900/50 rounded-lg p-2 text-xs">
-                                                <div className="flex items-center text-yellow-400 mb-1">
-                                                    <AlertCircle className="h-3 w-3 mr-1" /> Warning
-                                                </div>
-                                                <div className="font-medium text-slate-200">Conveyor belt deviation</div>
-                                                <div className="text-slate-400 mt-1">24 min ago</div>
-                                            </div>
-                                            <div className="bg-blue-950/30 border border-blue-900/50 rounded-lg p-2 text-xs">
-                                                <div className="flex items-center text-blue-400 mb-1">
-                                                    <AlertCircle className="h-3 w-3 mr-1" /> Info
-                                                </div>
-                                                <div className="font-medium text-slate-200">Preventive maintenance due</div>
-                                                <div className="text-slate-400 mt-1">1 hour ago</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="bg-slate-800/60 rounded-xl border border-slate-700 p-4 flex-1">
-                                        <div className="text-sm font-semibold mb-3 text-slate-300">Predictive Insights</div>
-                                        <div className="bg-indigo-950/30 border border-indigo-900/50 rounded-lg p-3 text-xs">
-                                            <div className="font-medium text-white mb-2">AI Assistant Analysis</div>
-                                            <div className="text-slate-300">Sorting arm #8 showing early signs of wear. Recommend inspection within 72 hours.</div>
-                                            <button className="mt-2 w-full py-1.5 rounded bg-indigo-600/50 hover:bg-indigo-600 text-white text-xs transition-colors">
-                                                Schedule Maintenance
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        {/* Real dashboard visualization */}
+                        <div className="aspect-video relative overflow-hidden">
+                            <Image 
+                                src="/images/monitoring-dashboard.png"
+                                alt="Color Robotics Monitoring Dashboard" 
+                                fill
+                                priority
+                                className="object-cover object-top"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                            />
                         </div>
                     </div>
                 </div>
@@ -285,29 +184,6 @@ export default function LandingPage() {
                 <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-slate-950 to-transparent"></div>
             </section>
 
-            {/* Stats Section */}
-            <section className="py-20 relative">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-12">
-                        <p className="text-slate-400 uppercase tracking-wider text-sm font-semibold mb-4">TRUSTED BY INDUSTRY LEADERS</p>
-                        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                            {/* Placeholder company logos */}
-                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
-                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
-                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
-                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
-                            <div className="h-8 w-32 bg-gradient-to-r from-slate-800 to-slate-700 rounded opacity-60 hover:opacity-100 transition-opacity"></div>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mt-10">
-                        <StatsItem value="62%" label="Average reduction in MTTR" />
-                        <StatsItem value="38%" label="Increase in uptime" />
-                        <StatsItem value="73%" label="Faster issue detection" />
-                        <StatsItem value="87%" label="Teams report easier troubleshooting" />
-                    </div>
-                </div>
-            </section>
 
             {/* Key Features Section */}
             <section id="features" className="py-20 md:py-32 relative">
@@ -430,7 +306,8 @@ export default function LandingPage() {
                     <div className="mt-32 grid md:grid-cols-2 gap-16 items-center">
                         <div className="md:order-2 relative">
                             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-20 blur-xl"></div>
-                            <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden p-4 shadow-2xl">
+                            <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden shadow-2xl">
+                                {/* Keep the existing Predictive Maintenance Dashboard, as it looks good */}
                                 <div className="bg-slate-900 rounded-xl p-4 h-80">
                                     <div className="border-b border-slate-800 pb-3 mb-4">
                                         <div className="text-lg font-semibold text-white">Predictive Maintenance Dashboard</div>
@@ -566,11 +443,6 @@ export default function LandingPage() {
                             onClick={() => setActiveDemoTab('food')}
                             label="Food & Beverage"
                         />
-                        <IndustryTab
-                            active={activeDemoTab === 'electronics'}
-                            onClick={() => setActiveDemoTab('electronics')}
-                            label="Electronics"
-                        />
                     </div>
 
                     {/* Industry Content */}
@@ -580,14 +452,12 @@ export default function LandingPage() {
                                 {activeDemoTab === 'warehousing' && 'Maximize Uptime for Warehouse Automation'}
                                 {activeDemoTab === 'manufacturing' && 'Transform Your Production Line Efficiency'}
                                 {activeDemoTab === 'food' && 'Ensure Continuous Food Processing Operations'}
-                                {activeDemoTab === 'electronics' && 'Maintain Precision in Electronics Assembly'}
                             </h3>
 
                             <p className="text-slate-400 mb-8">
                                 {activeDemoTab === 'warehousing' && 'Quickly diagnose and resolve issues across AMRs, conveyors, and sortation systems to keep products flowing and meet SLAs.'}
                                 {activeDemoTab === 'manufacturing' && 'Ensure continuous operation of robotic cells with real-time monitoring, predictive maintenance, and guided troubleshooting.'}
                                 {activeDemoTab === 'food' && 'Maintain the highest levels of operational reliability in a demanding environment where downtime directly impacts food quality.'}
-                                {activeDemoTab === 'electronics' && 'Ensure precise, consistent assembly with early detection of tool wear and calibration drift in high-precision environments.'}
                             </p>
 
                             <div className="space-y-4 mb-8">
@@ -618,14 +488,6 @@ export default function LandingPage() {
                                     </>
                                 )}
 
-                                {activeDemoTab === 'electronics' && (
-                                    <>
-                                        <BenefitItem text="Monitor sub-millimeter placement accuracy" />
-                                        <BenefitItem text="Detect subtle calibration drift before failures" />
-                                        <BenefitItem text="Cut quality escapes by 83%" />
-                                        <BenefitItem text="Support rapid product changeovers with minimal downtime" />
-                                    </>
-                                )}
                             </div>
 
                             <button className="inline-flex items-center px-5 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 group">
@@ -645,19 +507,16 @@ export default function LandingPage() {
                                                 {activeDemoTab === 'warehousing' && <Bot size={80} className="text-cyan-500" />}
                                                 {activeDemoTab === 'manufacturing' && <Cpu size={80} className="text-indigo-500" />}
                                                 {activeDemoTab === 'food' && <Zap size={80} className="text-emerald-500" />}
-                                                {activeDemoTab === 'electronics' && <Wrench size={80} className="text-purple-500" />}
                                             </div>
                                             <h3 className="text-2xl font-bold mb-4 text-white">
                                                 {activeDemoTab === 'warehousing' && 'Warehouse Automation Command Center'}
                                                 {activeDemoTab === 'manufacturing' && 'Manufacturing Operation Hub'}
                                                 {activeDemoTab === 'food' && 'Food Processing Monitor'}
-                                                {activeDemoTab === 'electronics' && 'Precision Assembly Control'}
                                             </h3>
                                             <p className="text-slate-400 max-w-md mx-auto">
                                                 {activeDemoTab === 'warehousing' && 'Unified view of all automated storage, retrieval, and conveyor systems with real-time alerts and predictive insights.'}
                                                 {activeDemoTab === 'manufacturing' && 'Complete visibility across production cells with AI-guided diagnostics and virtual assistance for your team.'}
                                                 {activeDemoTab === 'food' && 'Specialized monitoring for food-safe environments with contamination prevention and regulatory compliance.'}
-                                                {activeDemoTab === 'electronics' && 'High-precision monitoring with micron-level deviation detection and component-level traceability.'}
                                             </p>
                                         </div>
                                     </div>
@@ -668,6 +527,42 @@ export default function LandingPage() {
                 </div>
             </section>
 
+            {/* Backed by the Best Section */}
+            <section className="py-20 relative bg-slate-900">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-3xl mx-auto text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100">
+                            Backed by the Best
+                        </h2>
+                        <p className="text-lg text-slate-400">
+                            Our innovation is supported by world-class organizations that believe in our mission to revolutionize robotics operations.
+                        </p>
+                    </div>
+                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20">
+                        {/* Partner logos - replace with actual partner logos */}
+                        <div className="relative h-16 w-40 flex items-center justify-center group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="relative z-10 text-xl font-bold text-white">Forum Ventures</div>
+                        </div>
+                        <div className="relative h-16 w-40 flex items-center justify-center group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="relative z-10 text-xl font-bold text-green-500">NVIDIA Inception</div>
+                        </div>
+                        <div className="relative h-16 w-40 flex items-center justify-center group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="relative z-10 text-xl font-bold">
+                                <span className="text-blue-500">G</span>
+                                <span className="text-red-500">o</span>
+                                <span className="text-yellow-500">o</span>
+                                <span className="text-blue-500">g</span>
+                                <span className="text-green-500">l</span>
+                                <span className="text-red-500">e</span>
+                                <span className="text-slate-300"> Cloud for Startups</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* CTA Section */}
             <section className="py-20 md:py-32 relative bg-slate-900">
@@ -703,20 +598,6 @@ export default function LandingPage() {
                                             </button>
                                         </div>
 
-                                        <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-500">
-                                            <div className="flex items-center">
-                                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
-                                                <span>15-minute setup</span>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
-                                                <span>Free implementation support</span>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
-                                                <span>ROI calculator included</span>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -772,7 +653,6 @@ export default function LandingPage() {
                             <ul className="space-y-3">
                                 <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
                                 <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
                                 <li><a href="#" className="hover:text-white transition-colors">Roadmap</a></li>
                             </ul>
                         </div>
@@ -783,7 +663,6 @@ export default function LandingPage() {
                                 <li><a href="#" className="hover:text-white transition-colors">Warehousing</a></li>
                                 <li><a href="#" className="hover:text-white transition-colors">Manufacturing</a></li>
                                 <li><a href="#" className="hover:text-white transition-colors">Food & Beverage</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Electronics</a></li>
                             </ul>
                         </div>
 
