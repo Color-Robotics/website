@@ -146,9 +146,12 @@ export default function LandingPage() {
                                 <span>Book a Demo</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </a>
-                            <button className="px-8 py-4 rounded-full bg-slate-800 hover:bg-slate-700 text-white transition-all duration-300 flex items-center justify-center">
+                            <a 
+                                href="#features" 
+                                className="px-8 py-4 rounded-full bg-slate-800 hover:bg-slate-700 text-white transition-all duration-300 flex items-center justify-center"
+                            >
                                 <span>See How It Works</span>
-                            </button>
+                            </a>
                         </div>
 
                         <div className="flex justify-center items-center space-x-8 text-sm text-slate-500">

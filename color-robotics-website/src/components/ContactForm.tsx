@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, FormEvent, ChangeEvent, useRef } from 'react';
 import { Send, Calendar, CheckCircle2 } from 'lucide-react';
 
 interface FormData {
@@ -27,6 +27,9 @@ export default function ContactForm() {
     const [errors, setErrors] = useState<FormErrors>({});
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
+    
+    const formRef = useRef<HTMLFormElement>(null);
+    const iframeRef = useRef<HTMLIFrameElement>(null);
 
     const validateForm = (): boolean => {
         const newErrors: FormErrors = {};
@@ -65,21 +68,23 @@ export default function ContactForm() {
     };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
         if (!validateForm()) {
-            e.preventDefault();
             return;
         }
         
         setIsSubmitting(true);
         
-        // Form will be submitted natively to Formspark
-        // After submission, Formspark will handle the redirect back
-        
-        // Reset form state after successful submission
-        // This will happen when user returns to the page after submission
-        window.onload = () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('_status') === 'OK') {
+        // Submit form to hidden iframe to prevent page navigation
+        const form = formRef.current;
+        if (form) {
+            // Set form target to hidden iframe
+            form.setAttribute('target', 'hidden-iframe');
+            form.submit();
+            
+            // Show success message after a short delay to allow form submission
+            setTimeout(() => {
                 setIsSuccess(true);
                 setFormData({
                     name: '',
@@ -87,12 +92,11 @@ export default function ContactForm() {
                     company: '',
                     message: ''
                 });
+                setIsSubmitting(false);
                 
-                setTimeout(() => {
-                    setIsSuccess(false);
-                }, 5000);
-            }
-        };
+                // Success message remains until page refresh
+            }, 1000);
+        }
     };
 
     return (
@@ -108,16 +112,24 @@ export default function ContactForm() {
                     </p>
 
                     {isSuccess ? (
-                        <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl p-6 mb-8 flex items-center">
-                            <CheckCircle2 className="text-green-500 mr-4 flex-shrink-0" size={24} />
-                            <div>
-                                <h4 className="text-white font-medium mb-1">Message Sent!</h4>
-                                <p className="text-slate-400">Thank you for reaching out. We'll be in touch shortly.</p>
-                            </div>
+                        <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl p-8 mb-8 flex flex-col items-center text-center">
+                            <CheckCircle2 className="text-green-500 mb-4" size={48} />
+                            <h3 className="text-white font-bold text-2xl mb-2">Message Sent!</h3>
+                            <p className="text-slate-300 mb-3">Thank you for reaching out to Color Robotics.</p>
+                            <p className="text-slate-400">We'll be in touch with you shortly.</p>
                         </div>
                     ) : null}
 
-                    <form onSubmit={handleSubmit} action="https://submit-form.com/jvPcybbTB" method="POST" target="_blank">
+                    {/* Hidden iframe to handle form submission without page navigation */}
+                    <iframe 
+                        name="hidden-iframe" 
+                        ref={iframeRef}
+                        style={{ display: 'none' }} 
+                        title="Hidden form target"
+                    ></iframe>
+                    
+                    {!isSuccess && (
+                        <form ref={formRef} onSubmit={handleSubmit} action="https://submit-form.com/jvPcybbTB" method="POST">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
@@ -195,7 +207,7 @@ export default function ContactForm() {
                                 disabled={isSubmitting}
                                 className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center group disabled:opacity-70 disabled:cursor-not-allowed w-full md:w-auto"
                             >
-                                <span>Send Message</span>
+                                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                                 <Send size={16} className={`ml-2 ${isSubmitting ? '' : 'group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform'}`} />
                             </button>
 
@@ -210,15 +222,18 @@ export default function ContactForm() {
                             </a>
                         </div>
                     </form>
+                    )}
 
-                    <div className="mt-8 text-sm text-slate-400 border-t border-slate-700 pt-6">
-                        <p>
-                            By submitting this form, you agree to our <a href="#" className="text-cyan-400 hover:text-cyan-300">Privacy Policy</a>. For faster response, you can also schedule a demo directly through our <a href="https://calendly.com/colorrobotics/demo" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">Calendly</a>.
-                        </p>
-                        <p className="mt-4">
-                            Email us directly at <a href="mailto:info@colorrobotics.ai" className="text-cyan-400 hover:text-cyan-300">info@colorrobotics.ai</a>
-                        </p>
-                    </div>
+                    {!isSuccess && (
+                        <div className="mt-8 text-sm text-slate-400 border-t border-slate-700 pt-6">
+                            <p>
+                                By submitting this form, you agree to our <a href="#" className="text-cyan-400 hover:text-cyan-300">Privacy Policy</a>. For faster response, you can also schedule a demo directly through our <a href="https://calendly.com/colorrobotics/demo" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">Calendly</a>.
+                            </p>
+                            <p className="mt-4">
+                                Email us directly at <a href="mailto:info@colorrobotics.ai" className="text-cyan-400 hover:text-cyan-300">info@colorrobotics.ai</a>
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
