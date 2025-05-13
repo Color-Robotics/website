@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, ChevronDown, ExternalLink, ArrowUpRight, Menu, X, Star, Activity, ShieldCheck, Clock, Cpu, BarChart3, Zap, Bot, Wrench, Layout, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Menu, X, Activity, Cpu, BarChart3, Zap, Bot, AlertCircle, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 // Types for component props
@@ -28,10 +28,6 @@ interface FeatureCardProps {
     description: string;
 }
 
-interface StatsItemProps {
-    value: string;
-    label: string;
-}
 
 type IndustryTabType = 'warehousing' | 'manufacturing' | 'food';
 
@@ -230,7 +226,7 @@ export default function LandingPage() {
                                     <div className="space-y-4">
                                         <div className="bg-slate-800 rounded-lg p-3 text-sm">
                                             <div className="font-medium text-cyan-400 mb-1">Color Robotics AI</div>
-                                            <div className="text-slate-300">I've detected an abnormal vibration pattern in the articulation joint of Robot #12. Based on the frequency spectrum, this appears to be a bearing issue.</div>
+                                            <div className="text-slate-300">I&apos;ve detected an abnormal vibration pattern in the articulation joint of Robot #12. Based on the frequency spectrum, this appears to be a bearing issue.</div>
                                         </div>
                                         <div className="bg-slate-800 rounded-lg p-3 text-sm">
                                             <div className="font-medium text-cyan-400 mb-1">Color Robotics AI</div>
@@ -246,7 +242,7 @@ export default function LandingPage() {
                                         </div>
                                         <div className="bg-slate-800 rounded-lg p-3 text-sm">
                                             <div className="font-medium text-cyan-400 mb-1">Color Robotics AI</div>
-                                            <div className="text-slate-300">I've notified the maintenance team and prepared a checklist. The average resolution time for similar issues is 37 minutes.</div>
+                                            <div className="text-slate-300">I&apos;ve notified the maintenance team and prepared a checklist. The average resolution time for similar issues is 37 minutes.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -257,9 +253,9 @@ export default function LandingPage() {
                             <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-400 uppercase tracking-wide mb-3">
                                 Virtual AI Engineer
                             </div>
-                            <h3 className="text-3xl md:text-4xl font-bold mb-6">Your Team's 24/7 Support Partner</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold mb-6">Your Team&apos;s 24/7 Support Partner</h3>
                             <p className="text-slate-400 mb-8">
-                                Our AI Assistant acts as a virtual engineer, providing expert guidance even when your technical team isn't available.
+                                Our AI Assistant acts as a virtual engineer, providing expert guidance even when your technical team isn&apos;t available.
                             </p>
 
                             <div className="space-y-6">
@@ -749,13 +745,3 @@ function FeatureCard({ icon, title, description }: FeatureCardProps) {
     );
 }
 
-function StatsItem({ value, label }: StatsItemProps) {
-    return (
-        <div className="bg-slate-800/60 rounded-xl border border-slate-700 p-6 text-center">
-            <div className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-                {value}
-            </div>
-            <div className="text-slate-400">{label}</div>
-        </div>
-    );
-}
