@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, Menu, X, Activity, Cpu, BarChart3, Zap, Bot, AlertCircle, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
+import ContactForm from './ContactForm';
 
 // Types for component props
 interface NavLinkProps {
@@ -75,10 +76,10 @@ export default function LandingPage() {
                         </div>
 
                         <div className="hidden md:flex items-center space-x-4">
-                            <button className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center group">
+                            <a href="#contact" className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center group">
                                 <span>Get Started</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            </a>
                         </div>
 
                         <div className="md:hidden">
@@ -98,10 +99,14 @@ export default function LandingPage() {
                         <NavLink href="#solutions" onClick={() => setMobileMenuOpen(false)}>Solutions</NavLink>
                         <NavLink href="#about" onClick={() => setMobileMenuOpen(false)}>About</NavLink>
                         <div className="pt-6 border-t border-slate-800">
-                            <button className="w-full py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center">
+                            <a
+                                href="#contact"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="w-full py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center"
+                            >
                                 <span>Get Started</span>
                                 <ArrowRight size={16} className="ml-2" />
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -134,10 +139,13 @@ export default function LandingPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-                            <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center group">
+                            <a
+                                href="#contact"
+                                className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center group"
+                            >
                                 <span>Book a Demo</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            </a>
                             <button className="px-8 py-4 rounded-full bg-slate-800 hover:bg-slate-700 text-white transition-all duration-300 flex items-center justify-center">
                                 <span>See How It Works</span>
                             </button>
@@ -165,9 +173,9 @@ export default function LandingPage() {
                     <div className="relative rounded-2xl bg-slate-800/50 border border-slate-700 overflow-hidden shadow-2xl">
                         {/* Real dashboard visualization */}
                         <div className="aspect-video relative overflow-hidden">
-                            <Image 
+                            <Image
                                 src="/images/monitoring-dashboard.png"
-                                alt="Color Robotics Monitoring Dashboard" 
+                                alt="Color Robotics Monitoring Dashboard"
                                 fill
                                 priority
                                 className="object-cover object-top"
@@ -197,17 +205,17 @@ export default function LandingPage() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        <FeatureCard 
+                        <FeatureCard
                             icon={<Activity size={32} className="text-cyan-400" />}
                             title="Unified Monitoring"
                             description="Connect all your robots, PLCs, and sensors—regardless of brand—into a single, real-time command center."
                         />
-                        <FeatureCard 
+                        <FeatureCard
                             icon={<Cpu size={32} className="text-indigo-400" />}
                             title="AI-Powered Diagnostics"
                             description="Our AI assistant identifies issues before they cause downtime and provides expert guidance to your team."
                         />
-                        <FeatureCard 
+                        <FeatureCard
                             icon={<BarChart3 size={32} className="text-purple-400" />}
                             title="Predictive Analytics"
                             description="Machine learning models detect anomalies and predict potential failures days or weeks in advance."
@@ -560,45 +568,25 @@ export default function LandingPage() {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-20 md:py-32 relative bg-slate-900">
+            {/* Contact Section */}
+            <section id="contact" className="py-20 md:py-32 relative bg-slate-900">
                 <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-slate-950 to-transparent"></div>
                 <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-slate-950 to-transparent"></div>
 
                 <div className="container mx-auto px-6 relative">
-                    <div className="max-w-5xl mx-auto">
-                        <div className="relative overflow-hidden rounded-3xl">
-                            <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-30 blur-lg"></div>
-                            <div className="relative bg-gradient-to-b from-slate-800 to-slate-900 border border-slate-700 rounded-3xl overflow-hidden p-8 md:p-12">
-                                <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                                    <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-                                    <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-                                </div>
-
-                                <div className="relative">
-                                    <div className="text-center max-w-3xl mx-auto">
-                                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100">
-                                            Ready to Slash Your Robotic Downtime?
-                                        </h2>
-                                        <p className="text-slate-400 text-lg mb-8">
-                                            Book a personalized demo to see how our AI-powered platform can transform your robotic operations and dramatically reduce MTTR.
-                                        </p>
-
-                                        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-                                            <button className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center group font-medium">
-                                                <span>Book Your Demo</span>
-                                                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                                            </button>
-                                            <button className="px-8 py-4 rounded-full bg-slate-700 hover:bg-slate-600 text-white transition-all duration-300 flex items-center justify-center font-medium">
-                                                <span>Talk to Sales</span>
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                    <div className="max-w-3xl mx-auto text-center mb-16">
+                        <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-400 uppercase tracking-wide mb-3">
+                            Get In Touch
                         </div>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100">
+                            Ready to Slash Your Robotic Downtime?
+                        </h2>
+                        <p className="text-lg text-slate-400">
+                            Book a personalized demo to see how our AI-powered platform can transform your robotic operations and dramatically reduce MTTR.
+                        </p>
                     </div>
+
+                    <ContactForm />
                 </div>
             </section>
 
