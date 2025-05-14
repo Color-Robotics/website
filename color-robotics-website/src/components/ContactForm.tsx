@@ -108,7 +108,7 @@ export default function ContactForm() {
                         Get in Touch
                     </h2>
                     <p className="text-slate-400 mb-8">
-                        We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+                        We&apos;d love to hear from you. Fill out the form below and we&apos;ll get back to you as soon as possible.
                     </p>
 
                     {isSuccess ? (
@@ -116,7 +116,7 @@ export default function ContactForm() {
                             <CheckCircle2 className="text-green-500 mb-4" size={48} />
                             <h3 className="text-white font-bold text-2xl mb-2">Message Sent!</h3>
                             <p className="text-slate-300 mb-3">Thank you for reaching out to Color Robotics.</p>
-                            <p className="text-slate-400">We'll be in touch with you shortly.</p>
+                            <p className="text-slate-400">We&apos;ll be in touch with you shortly.</p>
                         </div>
                     ) : null}
 
