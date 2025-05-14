@@ -72,7 +72,6 @@ export default function LandingPage() {
                         <div className="hidden md:flex space-x-8 items-center">
                             <NavLink href="#features">Platform</NavLink>
                             <NavLink href="#solutions">Solutions</NavLink>
-                            <NavLink href="#about">About</NavLink>
                         </div>
 
                         <div className="hidden md:flex items-center space-x-4">
@@ -97,7 +96,6 @@ export default function LandingPage() {
                     <div className="flex flex-col space-y-6">
                         <NavLink href="#features" onClick={() => setMobileMenuOpen(false)}>Platform</NavLink>
                         <NavLink href="#solutions" onClick={() => setMobileMenuOpen(false)}>Solutions</NavLink>
-                        <NavLink href="#about" onClick={() => setMobileMenuOpen(false)}>About</NavLink>
                         <div className="pt-6 border-t border-slate-800">
                             <a
                                 href="#contact"
@@ -143,7 +141,7 @@ export default function LandingPage() {
                                 href="#contact"
                                 className="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 flex items-center justify-center group"
                             >
-                                <span>Book a Demo</span>
+                                <span>Get Started Today</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </a>
                             <a 
@@ -157,11 +155,11 @@ export default function LandingPage() {
                         <div className="flex justify-center items-center space-x-8 text-sm text-slate-500">
                             <div className="flex items-center">
                                 <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
-                                <span>No code integration</span>
+                                <span>Simplified integration</span>
                             </div>
                             <div className="flex items-center">
                                 <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
-                                <span>Works with any brand</span>
+                                <span>Flexible brand compatibility</span>
                             </div>
                             <div className="flex items-center">
                                 <CheckCircle2 className="w-5 h-5 mr-2 text-cyan-500" />
@@ -199,7 +197,7 @@ export default function LandingPage() {
                         <div className="inline-block py-0.5 px-3 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-400 uppercase tracking-wide mb-3">
                             Your AI-Powered Command Center
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-10 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-100 leading-normal">
                             Reimagine Robotic Operations
                         </h2>
                         <p className="text-lg text-slate-400">
@@ -497,10 +495,10 @@ export default function LandingPage() {
 
                             </div>
 
-                            <button className="inline-flex items-center px-5 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 group">
+                            <a href="#contact" className="inline-flex items-center px-5 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white transition-all duration-300 shadow-lg shadow-indigo-600/20 group">
                                 <span>Get Solution</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            </a>
                         </div>
 
                         <div className="relative">
@@ -546,25 +544,38 @@ export default function LandingPage() {
                         </p>
                     </div>
                     <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20">
-                        {/* Partner logos - replace with actual partner logos */}
-                        <div className="relative h-16 w-40 flex items-center justify-center group">
+                        {/* Partner logos */}
+                        <div className="relative h-16 flex items-center justify-center group">
                             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10 text-xl font-bold text-white">Forum Ventures</div>
+                            <div className="relative z-10 w-48 h-16">
+                                <Image
+                                    src="/images/forum-logo.png"
+                                    alt="Forum Ventures"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
-                        <div className="relative h-16 w-40 flex items-center justify-center group">
+                        <div className="relative h-16 flex items-center justify-center group">
                             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10 text-xl font-bold text-green-500">NVIDIA Inception</div>
+                            <div className="relative z-10 w-48 h-16">
+                                <Image
+                                    src="/images/nvidia-inception.png"
+                                    alt="NVIDIA Inception"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
-                        <div className="relative h-16 w-40 flex items-center justify-center group">
+                        <div className="relative h-16 flex items-center justify-center group">
                             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10 text-xl font-bold">
-                                <span className="text-blue-500">G</span>
-                                <span className="text-red-500">o</span>
-                                <span className="text-yellow-500">o</span>
-                                <span className="text-blue-500">g</span>
-                                <span className="text-green-500">l</span>
-                                <span className="text-red-500">e</span>
-                                <span className="text-slate-300"> Cloud for Startups</span>
+                            <div className="relative z-10 w-48 h-16">
+                                <Image
+                                    src="/images/aws-activate.jpg"
+                                    alt="AWS Activate"
+                                    fill
+                                    className="object-contain"
+                                />
                             </div>
                         </div>
                     </div>
@@ -596,7 +607,7 @@ export default function LandingPage() {
             {/* Footer */}
             <footer className="bg-slate-950 text-slate-400 py-16 relative">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="col-span-2">
                             <div className="flex items-center mb-6">
                                 <div className="relative">
@@ -636,30 +647,9 @@ export default function LandingPage() {
                         </div>
 
                         <div>
-                            <h3 className="text-white font-semibold mb-4">Platform</h3>
-                            <ul className="space-y-3">
-                                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Roadmap</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 className="text-white font-semibold mb-4">Industries</h3>
-                            <ul className="space-y-3">
-                                <li><a href="#" className="hover:text-white transition-colors">Warehousing</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Manufacturing</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Food & Beverage</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
                             <h3 className="text-white font-semibold mb-4">Company</h3>
                             <ul className="space-y-3">
-                                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -724,13 +714,9 @@ function FeatureCard({ icon, title, description }: FeatureCardProps) {
                     {icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-white">{title}</h3>
-                <p className="text-slate-400 mb-4">
+                <p className="text-slate-400">
                     {description}
                 </p>
-                <a href="#" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 text-sm">
-                    Learn more
-                    <ArrowRight size={14} className="ml-1" />
-                </a>
             </div>
         </div>
     );

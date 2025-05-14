@@ -212,13 +212,13 @@ export default function ContactForm() {
                             </button>
 
                             <a
-                                href="https://calendly.com/colorrobotics/demo"
+                                href="https://calendly.com/pradeesh-colorrobotics/30min"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-8 py-4 rounded-full bg-slate-700 hover:bg-slate-600 text-white transition-all duration-300 flex items-center justify-center w-full md:w-auto"
                             >
                                 <Calendar size={16} className="mr-2" />
-                                <span>Schedule a Demo</span>
+                                <span>Schedule a Meeting</span>
                             </a>
                         </div>
                     </form>
@@ -227,7 +227,7 @@ export default function ContactForm() {
                     {!isSuccess && (
                         <div className="mt-8 text-sm text-slate-400 border-t border-slate-700 pt-6">
                             <p>
-                                By submitting this form, you agree to our <a href="#" className="text-cyan-400 hover:text-cyan-300">Privacy Policy</a>. For faster response, you can also schedule a demo directly through our <a href="https://calendly.com/colorrobotics/demo" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">Calendly</a>.
+                                By submitting this form, you agree to our <a href="#" className="text-cyan-400 hover:text-cyan-300">Privacy Policy</a>. For faster response, you can also schedule a meeting directly through our <a href="https://calendly.com/pradeesh-colorrobotics/30min" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">Calendly</a>.
                             </p>
                             <p className="mt-4">
                                 Email us directly at <a href="mailto:info@colorrobotics.ai" className="text-cyan-400 hover:text-cyan-300">info@colorrobotics.ai</a>
