@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { ArrowRight, Menu, X, Activity, Cpu, BarChart3, CheckCircle2 } from 'lucide-react';
-import Image from 'next/image';
 import ContactForm from './ContactForm';
 
 // Types for component props
