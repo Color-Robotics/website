@@ -95,8 +95,8 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="relative mx-auto w-full max-w-5xl">
-            <div className="relative grid gap-10 rounded-[32px] border-2 border-border-soft bg-white p-8 shadow-large md:grid-cols-[1.2fr_0.8fr] md:p-12">
+        <div className="relative mx-auto w-full max-w-3xl">
+            <div className="relative rounded-[32px] border-2 border-border-soft bg-white p-8 shadow-large md:p-12">
                 <div className="space-y-8">
                     <div>
                         <p className="text-xs uppercase tracking-[0.32em] text-text-2">Get in Touch</p>
@@ -215,31 +215,6 @@ export default function ContactForm() {
                         </>
                     )}
                 </div>
-
-                <aside className="flex flex-col justify-between rounded-2xl border-2 border-border-soft bg-surface-1 p-6">
-                    <div className="space-y-6">
-                        <div className="space-y-4 text-sm text-text-1">
-                            <div className="flex items-start gap-3 rounded-xl border-2 border-border-soft bg-white p-4">
-                                <div className="mt-1 h-2 w-2 rounded-full" style={{ background: 'var(--brand-blue)' }}></div>
-                                <div>
-                                    <p className="font-semibold text-text-0">Email us</p>
-                                    <p>hello@colorrobotics.ai</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start gap-3 rounded-xl border-2 border-border-soft bg-white p-4">
-                                <div className="mt-1 h-2 w-2 rounded-full" style={{ background: 'var(--brand-orange)' }}></div>
-                                <div>
-                                    <p className="font-semibold text-text-0">Schedule a call</p>
-                                    <p>15-30 min consultation</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="mt-6 rounded-xl border-2 border-border-soft bg-white p-4 text-xs uppercase tracking-[0.32em] text-text-2">
-                        NDA ready
-                    </div>
-                </aside>
             </div>
         </div>
     );
