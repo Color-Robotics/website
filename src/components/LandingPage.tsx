@@ -122,7 +122,7 @@ export default function LandingPage() {
                                 href="#features"
                                 className="w-full rounded-full border-2 border-brand-blue bg-white px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.32em] text-brand-blue transition hover:bg-surface-1 sm:w-auto"
                             >
-                                Explore Platform
+                                Learn More
                             </a>
                         </div>
 
