@@ -218,16 +218,6 @@ export default function ContactForm() {
 
                 <aside className="flex flex-col justify-between rounded-2xl border-2 border-border-soft bg-surface-1 p-6">
                     <div className="space-y-6">
-                        <div>
-                            <p className="text-xs uppercase tracking-[0.32em] text-text-2">Rapid Response</p>
-                            <h3 className="mt-3 font-display text-xl text-text-0">
-                                Avg. first reply under 2 hours
-                            </h3>
-                            <p className="mt-2 text-sm text-text-1">
-                                Our engineering team responds to every inquiry with production-grade urgency.
-                            </p>
-                        </div>
-
                         <div className="space-y-4 text-sm text-text-1">
                             <div className="flex items-start gap-3 rounded-xl border-2 border-border-soft bg-white p-4">
                                 <div className="mt-1 h-2 w-2 rounded-full" style={{ background: 'var(--brand-blue)' }}></div>
