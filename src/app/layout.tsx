@@ -7,8 +7,8 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-displ
 const plexMono = IBM_Plex_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap', weight: ['400', '500', '600'] });
 
 export const metadata: Metadata = {
-  title: 'Color Robotics',
-  description: 'Robotics Integration & Observability Platform',
+  title: 'Color Robotics - AI That Sees Why Your Robot Stopped',
+  description: 'Bring your robots back online in minutes, not days. AI-powered visual diagnostics for robotic arms. No special hardware required.',
 };
 
 export default function RootLayout({
