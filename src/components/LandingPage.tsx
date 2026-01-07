@@ -58,8 +58,8 @@ export default function LandingPage() {
                         <div className="hidden md:flex items-center space-x-8">
                             <a href="#how-it-works" className="text-text-1 hover:text-text-0 transition-colors font-medium">How It Works</a>
                             <a href="#contact" className="text-text-1 hover:text-text-0 transition-colors font-medium">Contact</a>
-                            <a href="#contact" className="px-5 py-2 rounded-full text-white transition-all duration-300 shadow-medium hover:shadow-large flex items-center group" style={{ background: 'var(--accent-spectrum)' }}>
-                                <span>Get Early Access</span>
+                            <a href="https://calendly.com/pradeesh-colorrobotics/15-minutes" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-full text-white transition-all duration-300 shadow-medium hover:shadow-large flex items-center group" style={{ background: 'var(--accent-spectrum)' }}>
+                                <span>Book a Call</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </a>
                         </div>
@@ -92,12 +92,14 @@ export default function LandingPage() {
                             Contact
                         </a>
                         <a
-                            href="#contact"
+                            href="https://calendly.com/pradeesh-colorrobotics/15-minutes"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex w-full items-center justify-center rounded-full py-3 text-sm font-semibold uppercase tracking-[0.32em] text-white transition"
                             style={{ background: 'var(--accent-spectrum)' }}
                         >
-                            <span>Get Early Access</span>
+                            <span>Book a Call</span>
                             <ArrowRight size={16} className="ml-2" />
                         </a>
                     </div>
@@ -105,7 +107,7 @@ export default function LandingPage() {
             )}
 
             {/* Hero Section - Visual Focus */}
-            <section className="relative overflow-hidden pt-32 pb-20 md:pb-32">
+            <section className="relative overflow-hidden pt-24 md:pt-32 pb-12 md:pb-32">
                 {/* Background layers */}
                 <div className="absolute inset-0 gradient-mesh-hero"></div>
                 <div className="absolute inset-0 bg-dot-pattern opacity-60"></div>
@@ -113,18 +115,18 @@ export default function LandingPage() {
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         {/* Left: Text */}
-                        <div className="space-y-8 relative">
-                            {/* Decorative elements near text */}
-                            <div className="absolute -left-8 top-0 h-16 w-16 rounded-full bg-brand-blue/10 blur-xl"></div>
-                            <div className="absolute -left-4 bottom-0 h-12 w-12 rounded-lg bg-brand-orange/15 blur-lg animate-pulse-glow"></div>
+                        <div className="space-y-6 md:space-y-8 relative text-center md:text-left">
+                            {/* Decorative elements near text - desktop only */}
+                            <div className="absolute -left-8 top-0 h-16 w-16 rounded-full bg-brand-blue/10 blur-xl hidden md:block"></div>
+                            <div className="absolute -left-4 bottom-0 h-12 w-12 rounded-lg bg-brand-orange/15 blur-lg animate-pulse-glow hidden md:block"></div>
 
                             <h1 className="font-display text-4xl leading-[1.1] tracking-tight text-text-0 md:text-5xl lg:text-6xl">
                                 Robot down? <span className="text-gradient-primary">Back to production</span> in minutes.
                             </h1>
-                            <p className="text-xl text-text-1 leading-relaxed">
+                            <p className="text-lg md:text-xl text-text-1 leading-relaxed">
                                 Our AI shows your team exactly what failed and how to fix it—no robotics expertise required.
                             </p>
-                            <div className="flex flex-col gap-4 sm:flex-row">
+                            <div className="flex flex-col gap-4 sm:flex-row justify-center md:justify-start">
                                 <a
                                     href="#contact"
                                     className="group rounded-full px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.32em] text-white transition shadow-medium hover:shadow-large"
@@ -137,114 +139,117 @@ export default function LandingPage() {
                         </div>
 
                         {/* Right: Abstract Diagnostic Flow Visual */}
-                        <div ref={heroRef} className="relative h-[400px] lg:h-[500px]">
-                            {/* Ambient glow - very soft */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-brand-blue/15 blur-[80px]" />
-                            <div className="absolute top-1/4 right-0 h-64 w-64 rounded-full bg-brand-orange/10 blur-[60px]" />
+                        <div ref={heroRef} className="relative h-[80px] md:h-[400px] lg:h-[500px]">
+                            {/* Ambient glow - very soft, desktop only */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-80 w-80 rounded-full bg-brand-blue/15 blur-[80px] hidden md:block" />
+                            <div className="absolute top-1/4 right-0 h-64 w-64 rounded-full bg-brand-orange/10 blur-[60px] hidden md:block" />
 
-                            {/* Three-stage diagnostic flow */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col md:flex-row items-center gap-3 md:gap-6 w-full px-4 md:px-0 md:w-auto">
+                            {/* Three-stage diagnostic flow - hidden on mobile, horizontal on desktop */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex flex-row items-center gap-4 w-auto justify-center">
 
-                                {/* Stage 1: Alert/Problem */}
-                                <div
-                                    className="relative flex flex-row md:flex-col items-center gap-3 md:gap-0"
-                                    style={{
-                                        transform: `translateY(${-10 + armProgress * 20}px)`,
-                                        opacity: 1 - armProgress * 0.3,
-                                        transition: 'all 0.2s ease-out'
-                                    }}
-                                >
-                                    <div className="h-14 w-14 md:h-20 md:w-20 rounded-xl md:rounded-2xl bg-gradient-to-br from-red-500/20 to-red-500/10 border-2 border-red-500/30 flex items-center justify-center shadow-lg backdrop-blur-sm flex-shrink-0">
-                                        <AlertTriangle size={24} className="text-red-500 md:hidden" />
+                                {/* Stage 1: Alert/Problem - always active */}
+                                <div className="relative flex flex-row md:flex-col items-center gap-3 md:gap-0">
+                                    <div
+                                        className="h-12 w-12 md:h-20 md:w-20 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg backdrop-blur-sm flex-shrink-0 transition-all duration-300"
+                                        style={{
+                                            background: 'linear-gradient(to bottom right, rgba(239,68,68,0.2), rgba(239,68,68,0.1))',
+                                            borderWidth: '2px',
+                                            borderColor: 'rgba(239,68,68,0.5)'
+                                        }}
+                                    >
+                                        <AlertTriangle size={20} className="text-red-500 md:hidden" />
                                         <AlertTriangle size={36} className="text-red-500 hidden md:block" />
                                     </div>
-                                    <span className="text-xs font-medium text-text-2 md:mt-3">Failure detected</span>
+                                    <span className="text-[10px] md:text-xs font-medium text-text-2 md:mt-2">Failure</span>
                                 </div>
 
-                                {/* Connector 1 */}
-                                <div className="hidden md:flex items-center">
-                                    <div
-                                        className="h-1 bg-gradient-to-r from-red-500/50 to-brand-orange/50 rounded-full"
-                                        style={{
-                                            width: `${40 + armProgress * 20}px`,
-                                            transition: 'width 0.2s ease-out'
-                                        }}
-                                    />
-                                    <ArrowRight size={16} className="text-brand-orange -ml-1" />
-                                </div>
-
-                                {/* Stage 2: AI Analysis (center, prominent) */}
-                                <div
-                                    className="relative flex flex-row md:flex-col items-center gap-3 md:gap-0"
-                                    style={{
-                                        transform: `scale(${1 + armProgress * 0.1})`,
-                                        transition: 'transform 0.2s ease-out'
-                                    }}
-                                >
-                                    <div className="h-16 w-16 md:h-28 md:w-28 rounded-2xl md:rounded-3xl bg-gradient-to-br from-brand-orange to-brand-yellow flex items-center justify-center shadow-xl relative overflow-hidden flex-shrink-0">
+                                {/* Connector 1 - fills as you scroll */}
+                                <div className="flex flex-col md:flex-row items-center">
+                                    {/* Vertical connector for mobile */}
+                                    <div className="relative w-1 h-4 md:hidden bg-gray-200 rounded-full overflow-hidden">
                                         <div
-                                            className="absolute inset-0 bg-white/20"
-                                            style={{
-                                                transform: `translateY(${100 - armProgress * 100}%)`,
-                                                transition: 'transform 0.3s ease-out'
-                                            }}
+                                            className="absolute inset-x-0 top-0 bg-gradient-to-b from-red-500 to-brand-orange rounded-full transition-all duration-300"
+                                            style={{ height: `${Math.min(100, armProgress * 250)}%` }}
                                         />
-                                        <Cpu size={28} className="text-white relative z-10 md:hidden" />
-                                        <Cpu size={44} className="text-white relative z-10 hidden md:block" />
                                     </div>
-                                    <span className="text-xs font-semibold text-brand-orange md:mt-3">AI Diagnosis</span>
-
-                                    {/* Scanning rings - desktop only */}
-                                    <div
-                                        className="absolute -inset-4 rounded-[2rem] border-2 border-brand-orange/20 hidden md:block"
-                                        style={{
-                                            transform: `scale(${1 + armProgress * 0.15})`,
-                                            opacity: 0.6 - armProgress * 0.3,
-                                            transition: 'all 0.2s ease-out'
-                                        }}
-                                    />
-                                    <div
-                                        className="absolute -inset-8 rounded-[2.5rem] border border-brand-orange/10 hidden md:block"
-                                        style={{
-                                            transform: `scale(${1 + armProgress * 0.2})`,
-                                            opacity: 0.4 - armProgress * 0.2,
-                                            transition: 'all 0.2s ease-out'
-                                        }}
-                                    />
+                                    {/* Horizontal connector for desktop */}
+                                    <div className="relative h-1 w-12 bg-gray-200 rounded-full overflow-hidden hidden md:block">
+                                        <div
+                                            className="absolute inset-y-0 left-0 bg-gradient-to-r from-red-500 to-brand-orange rounded-full transition-all duration-300"
+                                            style={{ width: `${Math.min(100, armProgress * 250)}%` }}
+                                        />
+                                    </div>
+                                    <ArrowRight size={16} className="hidden md:block -ml-1" style={{ color: armProgress > 0.4 ? '#FF6600' : '#d1d5db' }} />
                                 </div>
 
-                                {/* Connector 2 */}
-                                <div className="hidden md:flex items-center">
+                                {/* Stage 2: AI Analysis - lights up at 20% */}
+                                <div className="relative flex flex-row md:flex-col items-center gap-3 md:gap-0">
                                     <div
-                                        className="h-1 bg-gradient-to-r from-brand-orange/50 to-brand-green/50 rounded-full"
+                                        className="h-14 w-14 md:h-24 md:w-24 rounded-xl md:rounded-2xl flex items-center justify-center shadow-xl flex-shrink-0 transition-all duration-300 relative overflow-hidden"
                                         style={{
-                                            width: `${40 + armProgress * 20}px`,
-                                            transition: 'width 0.2s ease-out'
+                                            background: armProgress > 0.2
+                                                ? 'linear-gradient(to bottom right, #FF6600, #FFC300)'
+                                                : 'linear-gradient(to bottom right, #e5e7eb, #d1d5db)',
+                                            transform: `scale(${1 + (armProgress > 0.2 ? 0.05 : 0)})`
                                         }}
-                                    />
-                                    <ArrowRight size={16} className="text-brand-green -ml-1" />
+                                    >
+                                        <Cpu size={24} className="md:hidden transition-colors duration-300" style={{ color: armProgress > 0.2 ? 'white' : '#9ca3af' }} />
+                                        <Cpu size={40} className="hidden md:block transition-colors duration-300" style={{ color: armProgress > 0.2 ? 'white' : '#9ca3af' }} />
+                                    </div>
+                                    <span
+                                        className="text-[10px] md:text-xs font-semibold md:mt-2 transition-colors duration-300"
+                                        style={{ color: armProgress > 0.2 ? '#FF6600' : '#9ca3af' }}
+                                    >
+                                        AI Diagnosis
+                                    </span>
                                 </div>
 
-                                {/* Stage 3: Fixed/Success */}
-                                <div
-                                    className="relative flex flex-row md:flex-col items-center gap-3 md:gap-0"
-                                    style={{
-                                        transform: `translateY(${10 - armProgress * 20}px)`,
-                                        opacity: 0.7 + armProgress * 0.3,
-                                        transition: 'all 0.2s ease-out'
-                                    }}
-                                >
-                                    <div className="h-14 w-14 md:h-20 md:w-20 rounded-xl md:rounded-2xl bg-gradient-to-br from-brand-green/20 to-brand-green/10 border-2 border-brand-green/30 flex items-center justify-center shadow-lg backdrop-blur-sm flex-shrink-0">
-                                        <CheckCircle2 size={24} className="text-brand-green md:hidden" />
-                                        <CheckCircle2 size={36} className="text-brand-green hidden md:block" />
+                                {/* Connector 2 - fills as you scroll */}
+                                <div className="flex flex-col md:flex-row items-center">
+                                    {/* Vertical connector for mobile */}
+                                    <div className="relative w-1 h-4 md:hidden bg-gray-200 rounded-full overflow-hidden">
+                                        <div
+                                            className="absolute inset-x-0 top-0 bg-gradient-to-b from-brand-orange to-brand-green rounded-full transition-all duration-300"
+                                            style={{ height: `${Math.max(0, Math.min(100, (armProgress - 0.4) * 250))}%` }}
+                                        />
                                     </div>
-                                    <span className="text-xs font-medium text-text-2 md:mt-3">Resolved</span>
+                                    {/* Horizontal connector for desktop */}
+                                    <div className="relative h-1 w-12 bg-gray-200 rounded-full overflow-hidden hidden md:block">
+                                        <div
+                                            className="absolute inset-y-0 left-0 bg-gradient-to-r from-brand-orange to-brand-green rounded-full transition-all duration-300"
+                                            style={{ width: `${Math.max(0, Math.min(100, (armProgress - 0.4) * 250))}%` }}
+                                        />
+                                    </div>
+                                    <ArrowRight size={16} className="hidden md:block -ml-1" style={{ color: armProgress > 0.7 ? '#1B4D2E' : '#d1d5db' }} />
+                                </div>
+
+                                {/* Stage 3: Fixed/Success - lights up at 70% */}
+                                <div className="relative flex flex-row md:flex-col items-center gap-3 md:gap-0">
+                                    <div
+                                        className="h-12 w-12 md:h-20 md:w-20 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg backdrop-blur-sm flex-shrink-0 transition-all duration-300"
+                                        style={{
+                                            background: armProgress > 0.7
+                                                ? 'linear-gradient(to bottom right, rgba(27,77,46,0.3), rgba(27,77,46,0.15))'
+                                                : 'linear-gradient(to bottom right, rgba(229,231,235,0.5), rgba(209,213,219,0.3))',
+                                            borderWidth: '2px',
+                                            borderColor: armProgress > 0.7 ? 'rgba(27,77,46,0.5)' : 'rgba(209,213,219,0.5)'
+                                        }}
+                                    >
+                                        <CheckCircle2 size={20} className="md:hidden transition-colors duration-300" style={{ color: armProgress > 0.7 ? '#1B4D2E' : '#9ca3af' }} />
+                                        <CheckCircle2 size={36} className="hidden md:block transition-colors duration-300" style={{ color: armProgress > 0.7 ? '#1B4D2E' : '#9ca3af' }} />
+                                    </div>
+                                    <span
+                                        className="text-[10px] md:text-xs font-medium md:mt-2 transition-colors duration-300"
+                                        style={{ color: armProgress > 0.7 ? '#1B4D2E' : '#9ca3af' }}
+                                    >
+                                        Resolved
+                                    </span>
                                 </div>
                             </div>
 
-                            {/* Progress indicator */}
-                            <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3">
-                                <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-white/90 backdrop-blur-sm border border-border-soft shadow-medium">
+                            {/* Progress indicator - desktop only */}
+                            <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3">
+                                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-sm border border-border-soft shadow-medium">
                                     <div className="flex gap-1">
                                         <div
                                             className="h-1 md:h-1.5 w-5 md:w-8 rounded-full transition-colors duration-300"
