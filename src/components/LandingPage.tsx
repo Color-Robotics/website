@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Menu, X, Cpu, Camera, Clock, AlertTriangle, DollarSign, CheckCircle2, Eye } from 'lucide-react';
+import { ArrowRight, Menu, X, Cpu, Clock, AlertTriangle, DollarSign, CheckCircle2 } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 export default function LandingPage() {
