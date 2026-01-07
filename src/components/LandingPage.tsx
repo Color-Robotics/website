@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Menu, X, Cpu, Clock, AlertTriangle, DollarSign, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Menu, X, Cpu, Clock, AlertTriangle, DollarSign, CheckCircle2, Video, Wrench } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 export default function LandingPage() {
@@ -55,7 +55,9 @@ export default function LandingPage() {
                             </a>
                         </div>
 
-                        <div className="hidden md:flex items-center space-x-4">
+                        <div className="hidden md:flex items-center space-x-8">
+                            <a href="#how-it-works" className="text-text-1 hover:text-text-0 transition-colors font-medium">How It Works</a>
+                            <a href="#contact" className="text-text-1 hover:text-text-0 transition-colors font-medium">Contact</a>
                             <a href="#contact" className="px-5 py-2 rounded-full text-white transition-all duration-300 shadow-medium hover:shadow-large flex items-center group" style={{ background: 'var(--accent-spectrum)' }}>
                                 <span>Get Early Access</span>
                                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -75,6 +77,20 @@ export default function LandingPage() {
             {mobileMenuOpen && (
                 <div className="fixed inset-0 z-40 bg-white/98 pt-20 p-6 backdrop-blur-xl md:hidden">
                     <div className="flex flex-col space-y-6">
+                        <a
+                            href="#how-it-works"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-center text-lg font-medium text-text-0 py-2"
+                        >
+                            How It Works
+                        </a>
+                        <a
+                            href="#contact"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-center text-lg font-medium text-text-0 py-2"
+                        >
+                            Contact
+                        </a>
                         <a
                             href="#contact"
                             onClick={() => setMobileMenuOpen(false)}
@@ -278,9 +294,9 @@ export default function LandingPage() {
                             <div className="mb-6 mx-auto h-16 w-16 rounded-2xl bg-[rgba(255,102,0,0.1)] flex items-center justify-center">
                                 <Clock size={32} className="text-brand-orange animate-icon-float" />
                             </div>
-                            <h3 className="font-display text-xl text-text-0 mb-2">Days of Waiting</h3>
+                            <h3 className="font-display text-xl text-text-0 mb-2">Extended Downtime</h3>
                             <p className="text-text-2 text-sm">
-                                Expert arrives Thursday. Production stopped now.
+                                Expert arrives Thursday. Your line stopped now.
                             </p>
                         </div>
 
@@ -289,9 +305,9 @@ export default function LandingPage() {
                             <div className="mb-6 mx-auto h-16 w-16 rounded-2xl bg-[rgba(24,91,167,0.1)] flex items-center justify-center">
                                 <AlertTriangle size={32} className="text-brand-blue animate-icon-float" style={{ animationDelay: '0.5s' }} />
                             </div>
-                            <h3 className="font-display text-xl text-text-0 mb-2">Cryptic Errors</h3>
+                            <h3 className="font-display text-xl text-text-0 mb-2">Unclear Diagnostics</h3>
                             <p className="text-text-2 text-sm">
-                                Error codes don&apos;t tell you what actually happened.
+                                Error codes don&apos;t explain what actually happened.
                             </p>
                         </div>
 
@@ -300,9 +316,9 @@ export default function LandingPage() {
                             <div className="mb-6 mx-auto h-16 w-16 rounded-2xl bg-[rgba(27,77,46,0.1)] flex items-center justify-center">
                                 <DollarSign size={32} className="text-brand-green animate-icon-float" style={{ animationDelay: '1s' }} />
                             </div>
-                            <h3 className="font-display text-xl text-text-0 mb-2">$$$$ per Hour</h3>
+                            <h3 className="font-display text-xl text-text-0 mb-2">Revenue Loss</h3>
                             <p className="text-text-2 text-sm">
-                                Every hour of downtime costs thousands.
+                                Every hour of downtime costs thousands in lost production.
                             </p>
                         </div>
                     </div>
@@ -312,8 +328,8 @@ export default function LandingPage() {
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
             </section>
 
-            {/* How It Works - Simple inline */}
-            <section id="how-it-works" className="relative py-16 md:py-20 bg-white overflow-hidden">
+            {/* How It Works - Two-column vertical layout */}
+            <section id="how-it-works" className="relative py-20 md:py-28 bg-white overflow-hidden">
                 {/* Background gradient mesh */}
                 <div className="absolute inset-0 -z-10 gradient-mesh-how-it-works"></div>
 
@@ -322,33 +338,73 @@ export default function LandingPage() {
                 <div className="absolute -bottom-10 -left-20 h-96 w-96 rounded-full bg-brand-blue/10 blur-[100px]"></div>
 
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="font-display text-2xl leading-tight text-text-0 md:text-3xl text-center mb-10">
-                            How it works
-                        </h2>
-
-                        {/* Simple inline steps */}
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-                            {/* Step 1 */}
-                            <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-brand-blue/5 border border-brand-blue/20">
-                                <span className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-blue text-white text-sm font-bold">1</span>
-                                <span className="text-text-0 font-medium">Point any camera at your robot</span>
+                    <div className="max-w-6xl mx-auto">
+                        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+                            {/* Left column - Header and intro */}
+                            <div className="md:sticky md:top-32">
+                                <h2 className="font-display text-3xl leading-tight text-text-0 md:text-4xl lg:text-5xl mb-6">
+                                    How It Works
+                                </h2>
+                                <p className="text-lg text-text-1 leading-relaxed">
+                                    Implementing Color Robotics is a simple three-step process designed to integrate seamlessly with your existing hardware.
+                                </p>
                             </div>
 
-                            <ArrowRight size={20} className="text-text-3 hidden md:block" />
+                            {/* Right column - Vertical steps */}
+                            <div className="space-y-6">
+                                {/* Step 1 */}
+                                <div className="relative rounded-2xl border border-border-soft bg-white p-6 shadow-medium hover:shadow-large transition-shadow duration-300">
+                                    <div className="flex gap-5">
+                                        <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center">
+                                            <Video size={24} className="text-brand-blue" />
+                                        </div>
+                                        <div>
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <span className="flex items-center justify-center h-6 w-6 rounded-full bg-brand-blue text-white text-xs font-bold">1</span>
+                                                <h3 className="font-display text-lg text-text-0">Point Camera</h3>
+                                            </div>
+                                            <p className="text-text-2 text-sm leading-relaxed">
+                                                Set up any standard camera to monitor your robot. No special hardware required.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            {/* Step 2 */}
-                            <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-brand-orange/5 border border-brand-orange/20">
-                                <span className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-orange text-white text-sm font-bold">2</span>
-                                <span className="text-text-0 font-medium">AI watches and diagnoses failures</span>
-                            </div>
+                                {/* Step 2 */}
+                                <div className="relative rounded-2xl border border-border-soft bg-white p-6 shadow-medium hover:shadow-large transition-shadow duration-300">
+                                    <div className="flex gap-5">
+                                        <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-brand-orange/10 flex items-center justify-center">
+                                            <Cpu size={24} className="text-brand-orange" />
+                                        </div>
+                                        <div>
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <span className="flex items-center justify-center h-6 w-6 rounded-full bg-brand-orange text-white text-xs font-bold">2</span>
+                                                <h3 className="font-display text-lg text-text-0">AI Diagnoses</h3>
+                                            </div>
+                                            <p className="text-text-2 text-sm leading-relaxed">
+                                                Our system watches for failures and identifies root causes using computer vision.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <ArrowRight size={20} className="text-text-3 hidden md:block" />
-
-                            {/* Step 3 */}
-                            <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-brand-green/5 border border-brand-green/20">
-                                <span className="flex items-center justify-center h-7 w-7 rounded-full bg-brand-green text-white text-sm font-bold">3</span>
-                                <span className="text-text-0 font-medium">Get step-by-step fix guidance</span>
+                                {/* Step 3 */}
+                                <div className="relative rounded-2xl border border-border-soft bg-white p-6 shadow-medium hover:shadow-large transition-shadow duration-300">
+                                    <div className="flex gap-5">
+                                        <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-brand-green/10 flex items-center justify-center">
+                                            <Wrench size={24} className="text-brand-green" />
+                                        </div>
+                                        <div>
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <span className="flex items-center justify-center h-6 w-6 rounded-full bg-brand-green text-white text-xs font-bold">3</span>
+                                                <h3 className="font-display text-lg text-text-0">Get the Fix</h3>
+                                            </div>
+                                            <p className="text-text-2 text-sm leading-relaxed">
+                                                Receive step-by-step guidance to resolve issues, including suggested code fixes.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -368,16 +424,41 @@ export default function LandingPage() {
                 <div className="absolute -bottom-20 right-0 h-96 w-96 rounded-full bg-brand-blue/8 blur-[100px]"></div>
 
                 <div className="container relative mx-auto px-6">
-                    <div className="mx-auto mb-12 max-w-2xl text-center">
-                        <h2 className="font-display text-3xl text-text-0 md:text-5xl">
-                            See it in action
-                        </h2>
-                        <p className="mt-4 text-lg text-text-1">
-                            We&apos;re working with early partners now.
-                        </p>
-                    </div>
+                    <div className="max-w-6xl mx-auto">
+                        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+                            {/* Left column - Contact info */}
+                            <div>
+                                <h2 className="font-display text-3xl text-text-0 md:text-4xl lg:text-5xl mb-6">
+                                    Ready to reduce downtime?
+                                </h2>
+                                <p className="text-lg text-text-1 mb-8">
+                                    Get a personalized demo of how Color Robotics can save you time and money. Fill out the form and our team will be in touch within 24 hours.
+                                </p>
 
-                    <ContactForm />
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-4">
+                                        <div className="h-10 w-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-brand-blue" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p className="text-sm text-text-2">Email</p>
+                                            <a href="mailto:hello@colorrobotics.ai" className="text-text-0 font-medium hover:text-brand-blue transition-colors">
+                                                hello@colorrobotics.ai
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Right column - Form */}
+                            <div>
+                                <ContactForm />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -396,10 +477,6 @@ export default function LandingPage() {
                             <span className="text-brand-orange">r</span>
                             <span className="text-text-0 ml-1">Robotics</span>
                         </div>
-
-                        <p className="text-sm text-text-2 max-w-md">
-                            Team from Built Robotics, Honeywell, Glacier & Third Wave. Forum Ventures-backed.
-                        </p>
 
                         <div className="flex items-center gap-6 text-sm">
                             <a href="mailto:hello@colorrobotics.ai" className="hover:text-text-0 transition">hello@colorrobotics.ai</a>
